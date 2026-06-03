@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إدارة تعلولة — النظام المتكامل</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.firebaseio.com https://*.firebase.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com wss://*.firebaseio.com; form-action 'self'; base-uri 'self';"> 
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Readex+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c49a40;
+      --gold-lt: #f4dfb0;
+      --gold-dk: #8a6a20;
+      --bg: #0b0907;
+      --bg2: #13100c;
+      --card: rgba(19, 16, 12, 0.96);
+      --card2: rgba(30, 25, 20, 0.9);
+      --muted: #8c8070;
+      --muted2: #6b6054;
+      --success: #3dd598;
+      --danger: #f87171;
+      --warning: #fbbf24;
+      --info: #60a5fa;
+      --border: rgba(196, 154, 64, 0.15);
+      --border2: rgba(196, 154, 64, 0.3);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(196, 154, 64, 0.08), transparent 60%), #050403;
+      font-family: 'Readex Pro', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dk); border-radius: 10px; }
+
+    /* LOGIN */
+    .login-overlay {
+      position: fixed; inset: 0; background: rgba(5,4,3,0.94);
+      backdrop-filter: blur(8px); display: flex; align-items: center;
+      justify-content: center; z-index: 5000;
+    }
+    .login-card {
+      background: #16130f; border: 1px solid var(--border2);
+      border-radius: 28px; padding: 40px 32px;
+      width: min(420px, 90vw); text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .login-card h2 { font-family: 'Changa', sans-serif; font-size: 28px; margin: 0 0 8px; }
+    .login-card p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+    .login-card input {
+      width: 100%; padding: 14px; border-radius: 16px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+      color: #fff; text-align: center; font-size: 18px;
+      font-family: 'Readex Pro', sans-serif; outline: none;
+    }
+    .login-card input:focus { border-color: var(--gold); }
+    .login-card button {
+      width: 100%; margin-top: 16px; padding: 14px; border-radius: 16px;
+      border: none; font-weight: 800; font-size: 16px;
+      background: linear-gradient(135deg, #f5d79c, #c49a40);
+      color: #2b1a05; cursor: pointer; font-family: inherit;
+      transition: transform .2s;
+    }
+    .login-card button:active { transform: scale(0.97); }
+    .login-error { color: var(--danger); font-size: 13px; margin-top: 12px; min-height: 20px; }
+
+    /* LAYOUT */
+    .shell { max-width: 1300px; margin: 0 auto; padding: 0; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+      background: rgba(11,9,7,0.95); backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .topbar h1 {
+      font-family: 'Changa', sans-serif; font-size: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .topbar h1 span { color: var(--gold); }
+    .topbar-left { display: flex; align-items: center; gap: 12px; }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px; padding: 16px 20px;
+    }
+    .stat {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 16px; text-align: center;
+    }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--gold-lt); }
+    .stat-lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    .tabs {
+      display: flex; gap: 4px; padding: 0 20px;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      flex-shrink: 0; padding: 12px 20px;
+      font-family: 'Changa', sans-serif; font-weight: 600; font-size: 14px;
+      color: var(--muted); cursor: pointer; border-bottom: 2.5px solid transparent;
+      transition: all .25s; background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .tab:hover { color: var(--gold-lt); }
+    .tab.on { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .page { display: none; padding: 20px; }
+    .page.on { display: block; animation: fadeIn .3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* CONTROLS BAR */
+    .ctrl {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; margin-bottom: 16px;
+    }
+    .ctrl h2 {
+      font-family: 'Changa', sans-serif; font-size: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ctrl-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .search-box {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 8px 14px; min-width: 200px;
+    }
+    .search-box input {
+      background: none; border: none; color: #fff; font-size: 13px;
+      font-family: inherit; outline: none; flex: 1; direction: rtl;
+    }
+    .search-box input::placeholder { color: var(--muted2); }
+
+    /* BUTTONS */
+    .btn {
+      padding: 10px 18px; border-radius: 12px; font-weight: 700;
+      font-family: inherit; font-size: 13px; cursor: pointer;
+      border: none; transition: transform .2s, box-shadow .2s;
+      display: inline-flex; align-items: center; gap: 6px;
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(0.96); }
+    .btn-gold { background: linear-gradient(135deg, #f5d79c, #c49a40); color: #2b1a05; }
+    .btn-ghost { background: rgba(255,255,255,0.04); color: var(--muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: #fff; border-color: var(--muted); }
+    .btn-danger { background: rgba(248,113,113,0.12); color: var(--danger); border: 1px solid rgba(248,113,113,0.3); }
+    .btn-danger:hover { background: rgba(248,113,113,0.2); }
+    .btn-success { background: rgba(61,213,152,0.12); color: var(--success); border: 1px solid rgba(61,213,152,0.3); }
+    .btn-info { background: rgba(96,165,250,0.12); color: var(--info); border: 1px solid rgba(96,165,250,0.3); }
+    .btn-sm { padding: 6px 12px; font-size: 11px; border-radius: 8px; }
+
+    .btn-gold:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* TABLE */
+    .table-wrap {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+    }
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      text-align: right; padding: 14px 12px; font-size: 12px;
+      color: var(--muted); font-weight: 700; white-space: nowrap;
+      background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border);
+    }
+    td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .td-img {
+      width: 40px; height: 40px; border-radius: 8px; object-fit: cover;
+      background: var(--bg2); border: 1px solid var(--border);
+    }
+    .td-name { font-weight: 700; font-size: 13px; }
+    .td-desc { font-size: 11px; color: var(--muted); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .td-price { font-weight: 700; color: var(--gold-lt); font-size: 13px; direction: ltr; }
+    .td-cat {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      font-size: 11px; background: rgba(196,154,64,0.12); color: var(--gold-lt);
+    }
+    .td-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 12px;
+      font-size: 10px; font-weight: 700;
+    }
+    .td-badge.popular { background: linear-gradient(135deg,#0d0c0a,#b3882f); color: #fff; }
+    .td-badge.new { background: linear-gradient(135deg,#f1d28b,#c1903a); color: #2b1a05; }
+    .td-actions { display: flex; gap: 4px; }
+    .td-actions button {
+      width: 30px; height: 30px; border-radius: 8px; border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; transition: all .2s;
+    }
+    .td-actions .edit-btn { background: rgba(96,165,250,0.1); color: var(--info); }
+    .td-actions .edit-btn:hover { background: rgba(96,165,250,0.25); }
+    .td-actions .del-btn { background: rgba(248,113,113,0.1); color: var(--danger); }
+    .td-actions .del-btn:hover { background: rgba(248,113,113,0.25); }
+
+    .empty-state {
+      text-align: center; padding: 60px 20px; color: var(--muted);
+    }
+    .empty-state i { font-size: 48px; opacity: 0.3; margin-bottom: 12px; display: block; }
+    .empty-state p { font-size: 14px; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.on { display: flex; }
+    .modal {
+      background: #16130f; border: 1px solid var(--border2);
+      border-radius: 24px; width: 100%; max-width: 560px;
+      max-height: 90vh; overflow-y: auto; padding: 28px 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      animation: modalIn .3s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: none; } }
+    .modal h3 {
+      font-family: 'Changa', sans-serif; font-size: 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .modal h3 button {
+      background: none; border: none; color: var(--muted); font-size: 24px;
+      cursor: pointer; width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal h3 button:hover { background: rgba(255,255,255,0.05); color: #fff; }
+
+    .form-grid { display: grid; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 12px; color: var(--muted); font-weight: 600; }
+    .form-group input, .form-group textarea, .form-group select {
+      padding: 10px 14px; border-radius: 10px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+      color: #fff; font-family: inherit; font-size: 13px; outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--gold);
+    }
+    .form-group textarea { min-height: 70px; resize: vertical; }
+    .form-group select option { background: #16130f; }
+    .form-actions { display: flex; gap: 10px; margin-top: 8px; }
+    .form-actions .btn { flex: 1; justify-content: center; padding: 12px; font-size: 14px; }
+
+    /* CATEGORY PILLS */
+    .cat-grid {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .cat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 30px;
+      border: 1px solid var(--border); background: var(--card2);
+      cursor: pointer; transition: all .2s;
+      font-size: 13px;
+    }
+    .cat-pill:hover { border-color: var(--gold); background: rgba(196,154,64,0.08); }
+    .cat-pill.on { border-color: var(--gold); background: rgba(196,154,64,0.15); color: var(--gold-lt); }
+    .cat-pill .del-cat {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(248,113,113,0.15); border: none; color: var(--danger);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; transition: background .2s;
+    }
+    .cat-pill .del-cat:hover { background: rgba(248,113,113,0.3); }
+
+    /* STATUS */
+    .toast-container {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 9999; pointer-events: none;
+    }
+    .toast {
+      background: rgba(15,15,15,0.95); backdrop-filter: blur(12px);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 14px 24px; font-size: 13px; font-weight: 600;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      opacity: 0; transform: translateY(20px);
+      transition: all .4s cubic-bezier(.16,1,.3,1);
+      pointer-events: all; display: flex; align-items: center; gap: 10px;
+    }
+    .toast.on { opacity: 1; transform: translateY(0); }
+    .toast.success { border-color: rgba(61,213,152,0.3); }
+    .toast.error { border-color: rgba(248,113,113,0.3); }
+
+    .filter-bar {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .filter-bar select {
+      padding: 8px 12px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--card2);
+      color: #fff; font-family: inherit; font-size: 12px; outline: none;
+    }
+
+    .pagination {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; padding: 16px; border-top: 1px solid var(--border);
+    }
+    .pagination button {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--muted); cursor: pointer; transition: all .2s;
+    }
+    .pagination button:hover { border-color: var(--gold); color: var(--gold-lt); }
+    .pagination button.on { background: var(--gold); color: #2b1a05; border-color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .form-row { grid-template-columns: 1fr; }
+      .topbar h1 { font-size: 16px; }
+      .topbar h1 span { display: none; }
+      .stats { grid-template-columns: repeat(2, 1fr); padding: 12px; }
+      .page { padding: 12px; }
+      .tabs { padding: 0 12px; }
+      .tab { padding: 10px 14px; font-size: 12px; }
+      .ctrl h2 { font-size: 16px; }
+      .search-box { min-width: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- LOGIN -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <h2>🔐 لوحة إدارة تعلولة</h2>
+      <p>النظام المتكامل لإدارة القائمة الرقمية<br>مرتبط مباشرة بقاعدة Firebase في الوقت الفعلي</p>
+      <input type="password" id="adminPass" placeholder="كلمة المرور" autocomplete="off">
+      <button id="loginBtn">دخول</button>
+      <div class="login-error" id="loginError"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toastContainer">
+    <div class="toast" id="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" style="display:none">
+    <div class="topbar">
+      <h1>🌴 <span>تعلولة</span> | الإدارة</h1>
+      <div class="topbar-left">
+        <span style="font-size:12px;color:var(--muted)" id="statusBadge">⚡ متصل</span>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn">تسجيل خروج</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-num" id="statItems">0</div><div class="stat-lbl">إجمالي الأطباق</div></div>
+      <div class="stat"><div class="stat-num" id="statCats">0</div><div class="stat-lbl">التصنيفات</div></div>
+      <div class="stat"><div class="stat-num" id="statPopular">0</div><div class="stat-lbl">أطباق شائعة</div></div>
+      <div class="stat"><div class="stat-num" id="statNew">0</div><div class="stat-lbl">أطباق جديدة</div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab on" data-tab="items">🍽️ الأطباق</button>
+      <button class="tab" data-tab="categories">📂 التصنيفات</button>
+      <button class="tab" data-tab="seed">⚙️ الإعدادات</button>
+    </div>
+
+    <!-- ============== ITEMS TAB ============== -->
+    <div class="page on" id="page-items">
+      <div class="ctrl">
+        <h2>🍽️ جميع الأطباق</h2>
+        <div class="ctrl-actions">
+          <div class="search-box">
+            <span>🔍</span>
+            <input type="text" id="searchInput" placeholder="بحث عن طبق...">
+          </div>
+          <select id="catFilter" style="padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card2);color:#fff;font-family:inherit;font-size:12px;outline:none">
+            <option value="">كل التصنيفات</option>
+          </select>
+          <button class="btn btn-gold" id="addItemBtn">➕ إضافة طبق</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:50px">صورة</th>
+                <th>الاسم</th>
+                <th style="width:80px">السعر</th>
+                <th style="width:100px">التصنيف</th>
+                <th style="width:80px">الشارة</th>
+                <th>الوصف</th>
+                <th style="width:80px">إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody">
+            </tbody>
+          </table>
+        </div>
+        <div id="itemsEmpty" class="empty-state" style="display:none">
+          <span style="font-size:48px;opacity:0.3">🍽️</span>
+          <p>لا توجد أطباق. اضف طبق جديد أو ارفع القائمة الافتراضية من الإعدادات.</p>
+        </div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+
+    <!-- ============== CATEGORIES TAB ============== -->
+    <div class="page" id="page-categories">
+      <div class="ctrl">
+        <h2>📂 التصنيفات</h2>
+        <button class="btn btn-gold" id="addCatBtn">➕ إضافة تصنيف</button>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>المعرف</th>
+                <th>الاسم</th>
+                <th>الترتيب</th>
+                <th>عدد الأطباق</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="catsBody"></tbody>
+          </table>
+        </div>
+        <div id="catsEmpty" class="empty-state" style="display:none">
+          <span style="font-size:48px;opacity:0.3">📂</span>
+          <p>لا توجد تصنيفات.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== SEED / SETTINGS TAB ============== -->
+    <div class="page" id="page-seed">
+      <div class="ctrl">
+        <h2>⚙️ الإعدادات</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px">
+          <h3 style="font-family:'Changa',sans-serif;font-size:18px;margin-bottom:8px">🔄 مزامنة القائمة الافتراضية</h3>
+          <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:16px">
+            ترفع القائمة الافتراضية (جميع التصنيفات والأطباق) إلى Firebase.<br>
+            <strong style="color:var(--warning)">تحذير:</strong> سيتم استبدال جميع البيانات الحالية.
+          </p>
+          <button class="btn btn-gold" id="seedBtn" style="width:100%;justify-content:center">🚀 رفع القائمة الافتراضية</button>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px">
+          <h3 style="font-family:'Changa',sans-serif;font-size:18px;margin-bottom:8px">🔌 فحص الاتصال بقاعدة البيانات</h3>
+          <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:16px">
+            يختبر صلاحية القراءة والكتابة على Firebase Realtime Database.
+          </p>
+          <button class="btn btn-ghost" id="testBtn" style="width:100%;justify-content:center">📡 فحص الاتصال</button>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:20px">
+        <p style="color:var(--muted);font-size:13px">
+          <strong>مسار قاعدة البيانات:</strong> <code style="color:var(--gold-lt)">taaloola_menu</code><br>
+          <strong>آخر تحديث:</strong> <span id="lastUpdate">—</span>
+        </p>
+      </div>
+
+      <div style="margin-top:16px;background:var(--card);border:1px solid rgba(251,191,36,0.15);border-radius:20px;padding:20px">
+        <h3 style="font-family:'Changa',sans-serif;font-size:16px;color:var(--warning);margin-bottom:8px">🔒 الأمان وحماية البيانات</h3>
+        <ul style="color:var(--muted);font-size:12px;line-height:2;list-style:none;padding:0">
+          <li>✅ <strong>قفل تلقائي:</strong> بعد 5 محاولات دخول خاطئة، يُقفل الدخول لمدة ساعة</li>
+          <li>✅ <strong>القفل شامل:</strong> يستمر حتى بعد إعادة تحميل الصفحة (localStorage)</li>
+          <li>✅ <strong>انتهاء الجلسة:</strong> الجلسة تنتهي تلقائياً بعد 4 ساعات</li>
+          <li>✅ <strong>التشفير:</strong> كلمة المرور محمية بتشفير SHA-256 مزدوج مع "pepper"</li>
+          <li>✅ <strong>الجلسة:</strong> تذكرة الدخول محفوظة في sessionStorage فقط (تزول بإغلاق المتصفح)</li>
+          <li>✅ <strong>CSP:</strong> سياسة أمان المحتوى تمنع تنفيذ السكربتات الضارة</li>
+          <li>✅ <strong>Firebase Rules:</strong> تأكد من ضبط قواعد الأمان من لوحة Firebase Console</li>
+          <li>✅ <strong>الـ API Keys:</strong> مفاتيح Firebase عامة بتصميمها — الحماية الحقيقية من Security Rules</li>
+        </ul>
+        <div style="margin-top:12px;background:rgba(255,255,255,0.03);border-radius:12px;padding:12px;direction:ltr;text-align:left;font-size:11px;color:var(--muted2);overflow-x:auto">
+<pre>// Firebase Security Rules — الموصى بها:
+{
+  "rules": {
+    "taaloola_menu": {
+      ".read": true,
+      "items": {
+        ".write": "auth != null"
+      },
+      "categories": {
+        ".write": "auth != null"
+      },
+      "settings": {
+        ".write": "auth != null"
+      },
+      "orders": {
+        ".write": "auth != null"
+      }
+    }
+  }
+}</pre>
+        </div>
+        <p style="color:var(--muted);font-size:11px;margin-top:8px">⚠️ الصق هذه القواعد في Firebase Console → Realtime Database → Rules</p>
+        <div style="margin-top:12px;background:rgba(251,191,36,0.06);border-radius:12px;padding:12px;font-size:11px;color:var(--warning);line-height:1.7">
+          ⚠️ <strong>تنبيه أمني:</strong> هذا النظام يستخدم مصادقة محلية (Client-Side Auth) كحل مؤقت.<br>
+          للتطبيق الإنتاجي، يوصى بشدة باستخدام <strong>Firebase Authentication</strong> مع <strong>Hosting</strong> لتأمين لوحة الإدارة بشكل كامل.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITEM MODAL -->
+  <div class="modal-overlay" id="itemModal">
+    <div class="modal">
+      <h3 id="itemModalTitle">🍽️ إضافة طبق جديد<button id="closeItemModal">✕</button></h3>
+      <form id="itemForm" class="form-grid">
+        <input type="hidden" id="itemId">
+        <div class="form-row">
+          <div class="form-group">
+            <label>اسم الطبق *</label>
+            <input type="text" id="itemName" required placeholder="مثال: قوزي لحم">
+          </div>
+          <div class="form-group">
+            <label>السعر (د.ع) *</label>
+            <input type="number" id="itemPrice" min="0" step="500" required placeholder="22000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>التصنيف *</label>
+            <select id="itemCat" required></select>
+          </div>
+          <div class="form-group">
+            <label>الشارة (اختياري)</label>
+            <select id="itemBadge">
+              <option value="">— بدون شارة —</option>
+              <option value="popular">⭐ شائع (popular)</option>
+              <option value="new">🆕 جديد (new)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>الوصف</label>
+          <textarea id="itemDesc" placeholder="وصف مختصر للطبق..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>رابط الصورة</label>
+            <input type="text" id="itemImg" placeholder="img/taaloola-drink.jpeg">
+          </div>
+          <div class="form-group">
+            <label>ترتيب الظهور</label>
+            <input type="number" id="itemOrder" min="0" value="0">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold" id="saveItemBtn">💾 حفظ الطبق</button>
+          <button type="button" class="btn btn-danger" id="deleteItemBtn">🗑️ حذف</button>
+          <button type="button" class="btn btn-ghost" id="cancelItemBtn">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY MODAL -->
+  <div class="modal-overlay" id="catModal">
+    <div class="modal">
+      <h3 id="catModalTitle">📂 إضافة تصنيف جديد<button id="closeCatModal">✕</button></h3>
+      <form id="catForm" class="form-grid">
+        <input type="hidden" id="catId">
+        <div class="form-row">
+          <div class="form-group">
+            <label>المعرف (لاتيني) *</label>
+            <input type="text" id="catNameId" required placeholder="breakfast" dir="ltr">
+          </div>
+          <div class="form-group">
+            <label>الاسم *</label>
+            <input type="text" id="catName" required placeholder="فطور صباحي">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ترتيب الظهور</label>
+          <input type="number" id="catOrder" min="0" value="0">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold">💾 حفظ التصنيف</button>
+          <button type="button" class="btn btn-danger" id="deleteCatBtn">🗑️ حذف التصنيف</button>
+          <button type="button" class="btn btn-ghost" id="cancelCatBtn">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module">
+    import { database } from './firebase-config.js';
+    import { MENU_SEED } from './menu-seed.js';
+    import {
+      ref, child, onValue, set, update, remove, get
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+
+    // =========== CONFIG ===========
+    const DB_ROOT = 'taaloola_menu';
+    const SESSION_KEY = 'taaloolaAdminSession';
+    const ITEMS_PER_PAGE = 20;
+    const ADMIN_PASSWORD_HASH = '452ad7ef143524ba44a3cbf44c1acb105b3571df5e4226da7f0c723c55533dcc';
+    const PEPPER = 'taaloola-pepper';
+    const MAX_ATTEMPTS = 5;
+    const LOCKOUT_MS = 3600000;
+    const LOCKOUT_KEY = 'taaloolaLockout';
+    const ATTEMPT_KEY = 'taaloolaAttempts';
+    function getLockoutUntil() { return Number(localStorage.getItem(LOCKOUT_KEY)) || 0; }
+    function setLockoutUntil(ts) { localStorage.setItem(LOCKOUT_KEY, String(ts)); }
+    function getAttempts() { return Number(localStorage.getItem(ATTEMPT_KEY)) || 0; }
+    function setAttempts(n) { localStorage.setItem(ATTEMPT_KEY, String(n)); }
+
+    const rootRef = ref(database, DB_ROOT);
+    const categoriesRef = child(rootRef, 'categories');
+    const itemsRef = child(rootRef, 'items');
+
+    // =========== STATE ===========
+    const state = { categories: [], items: [], filterCat: '', search: '', page: 1 };
+    let realtimeBound = false;
+
+    // =========== DOM REFS ===========
+    const $ = id => document.getElementById(id);
+    const app = $('app');
+    const loginOverlay = $('loginOverlay');
+    const toast = $('toast');
+    const toastMsg = $('toastMsg');
+    const toastIcon = $('toastIcon');
+
+    // =========== TOAST ===========
+    let toastTimer;
+    function showToast(msg, type = 'success') {
+      toastMsg.textContent = msg;
+      toastIcon.textContent = type === 'success' ? '✅' : '❌';
+      toast.className = 'toast ' + type;
+      clearTimeout(toastTimer);
+      requestAnimationFrame(() => toast.classList.add('on'));
+      toastTimer = setTimeout(() => toast.classList.remove('on'), 2500);
+    }
+
+    // =========== LOGIN ===========
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+    }
+
+    async function handleLogin() {
+      const input = $('adminPass').value.trim();
+      if (!input) { $('loginError').textContent = 'يرجى إدخال كلمة المرور'; return; }
+      const lockout = getLockoutUntil();
+      if (lockout > Date.now()) {
+        const hours = Math.ceil((lockout - Date.now()) / 3600000);
+        $('loginError').textContent = '🔒 مقفل ' + hours + ' ساعة';
+        return;
+      }
+      $('loginBtn').disabled = true;
+      $('loginBtn').textContent = 'جارٍ التحقق...';
+      try {
+        const hash = await sha256(await sha256(input) + PEPPER);
+        if (hash === ADMIN_PASSWORD_HASH) {
+          $('loginError').textContent = '';
+          setAttempts(0);
+          setLockoutUntil(0);
+          sessionStorage.setItem(SESSION_KEY, 'true');
+          enterApp();
+        } else {
+          const attempts = getAttempts() + 1;
+          setAttempts(attempts);
+          if (attempts >= MAX_ATTEMPTS) {
+            setLockoutUntil(Date.now() + LOCKOUT_MS);
+            setAttempts(0);
+            $('loginError').textContent = '🔒 تم قفل الدخول لمدة ساعة...';
+          } else {
+            const remaining = MAX_ATTEMPTS - attempts;
+            $('loginError').textContent = '❌ كلمة المرور غير صحيحة (متبقي ' + remaining + ' محاولات)';
+          }
+        }
+      } catch (e) { $('loginError').textContent = e.message; }
+      finally {
+        $('loginBtn').disabled = false;
+        $('loginBtn').textContent = 'دخول';
+        $('adminPass').value = '';
+      }
+    }
+    $('loginBtn').addEventListener('click', handleLogin);
+    $('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
+
+    // =========== APP ENTRY ===========
+    function enterApp() {
+      loginOverlay.style.display = 'none';
+      app.style.display = 'block';
+      sessionStorage.setItem('taaloolaSessionExpiry', String(Date.now() + 14400000));
+      bindRealtime();
+    }
+
+    // =========== REALTIME ===========
+    function bindRealtime() {
+      if (realtimeBound) return;
+      onValue(categoriesRef, snap => {
+        const data = snap.val();
+        state.categories = data ? Object.values(data).filter(Boolean).sort((a,b) => (a.order??999)-(b.order??999)) : [];
+        renderCatsTable();
+        renderCatFilter();
+        renderCatSelects();
+        updateStats();
+        $('statusBadge').textContent = '⚡ متصل';
+      });
+      onValue(itemsRef, snap => {
+        const data = snap.val();
+        state.items = data ? Object.values(data).filter(Boolean).sort((a,b) => (a.order??9999)-(b.order??9999)) : [];
+        state.page = 1;
+        renderItemsTable();
+        updateStats();
+      }, err => {
+        console.warn('DB error', err);
+        $('statusBadge').textContent = '⚠️ خطأ في الاتصال';
+      });
+      realtimeBound = true;
+    }
+
+    // =========== STATS ===========
+    function updateStats() {
+      $('statItems').textContent = state.items.length;
+      $('statCats').textContent = state.categories.length;
+      $('statPopular').textContent = state.items.filter(i => i.badge === 'popular').length;
+      $('statNew').textContent = state.items.filter(i => i.badge === 'new').length;
+    }
+
+    // =========== TABS ===========
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+        tab.classList.add('on');
+        $(`page-${tab.dataset.tab}`).classList.add('on');
+      });
+    });
+
+    // =========== CATEGORIES TABLE ===========
+    function renderCatsTable() {
+      const body = $('catsBody');
+      const empty = $('catsEmpty');
+      if (!state.categories.length) {
+        body.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      body.innerHTML = state.categories.map(c => `
+        <tr>
+          <td><code style="color:var(--muted)">${c.id}</code></td>
+          <td><strong>${c.name}</strong></td>
+          <td>${c.order ?? 0}</td>
+          <td>${state.items.filter(i => i.cat === c.id).length}</td>
+          <td>
+            <div class="td-actions">
+              <button class="edit-btn" data-cat-id="${c.id}" title="تعديل">✏️</button>
+              <button class="del-btn" data-cat-id="${c.id}" title="حذف">🗑️</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+
+      body.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => openCatModal(btn.dataset.catId));
+      });
+      body.querySelectorAll('.del-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.catId;
+          if (!confirm(`هل تريد حذف التصنيف "${state.categories.find(c => c.id === id)?.name}"؟`)) return;
+          try {
+            await remove(child(categoriesRef, id));
+            showToast('تم حذف التصنيف', 'success');
+          } catch (e) { showToast('خطأ: ' + e.message, 'error'); }
+        });
+      });
+    }
+
+    // =========== CATEGORY FILTER & SELECTS ===========
+    function renderCatFilter() {
+      const sel = $('catFilter');
+      sel.innerHTML = '<option value="">كل التصنيفات</option>' +
+        state.categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+    }
+
+    function renderCatSelects() {
+      const opts = '<option value="">اختر التصنيف</option>' +
+        state.categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+      $('itemCat').innerHTML = opts;
+    }
+
+    // =========== ITEMS TABLE ===========
+    function getFilteredItems() {
+      let list = [...state.items];
+      if (state.filterCat) list = list.filter(i => i.cat === state.filterCat);
+      if (state.search) {
+        const q = state.search.toLowerCase();
+        list = list.filter(i => i.name?.toLowerCase().includes(q) || i.id?.toString().includes(q));
+      }
+      return list;
+    }
+
+    function renderItemsTable() {
+      const body = $('itemsBody');
+      const empty = $('itemsEmpty');
+      const pagination = $('pagination');
+
+      const filtered = getFilteredItems();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+      if (state.page > totalPages) state.page = totalPages;
+      const start = (state.page - 1) * ITEMS_PER_PAGE;
+      const pageItems = filtered.slice(start, start + ITEMS_PER_PAGE);
+
+      if (!pageItems.length) {
+        body.innerHTML = '';
+        empty.style.display = 'block';
+        pagination.innerHTML = '';
+        return;
+      }
+      empty.style.display = 'none';
+
+      body.innerHTML = pageItems.map(item => {
+        const badgeHtml = item.badge ? `<span class="td-badge ${item.badge}">${item.badge === 'popular' ? '⭐ شائع' : '🆕 جديد'}</span>` : '<span style="color:var(--muted2);font-size:11px">—</span>';
+        const catName = state.categories.find(c => c.id === item.cat)?.name || item.cat;
+        return `
+          <tr>
+            <td><img class="td-img" src="${item.img || 'img/logo.jpeg'}" alt="" loading="lazy" onerror="this.src='img/logo.jpeg'"></td>
+            <td><div class="td-name">${item.name}</div></td>
+            <td class="td-price">${Number(item.price).toLocaleString()}</td>
+            <td><span class="td-cat">${catName}</span></td>
+            <td>${badgeHtml}</td>
+            <td><div class="td-desc">${item.desc || '—'}</div></td>
+            <td>
+              <div class="td-actions">
+                <button class="edit-btn" data-item-id="${item.id}" title="تعديل">✏️</button>
+                <button class="del-btn" data-item-id="${item.id}" title="حذف">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      body.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => openItemModal(btn.dataset.itemId));
+      });
+      body.querySelectorAll('.del-btn').forEach(btn => {
+        btn.addEventListener('click', () => deleteItem(btn.dataset.itemId));
+      });
+
+      // Pagination
+      if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+      let phtml = '';
+      for (let i = 1; i <= totalPages; i++) {
+        phtml += `<button class="${i === state.page ? 'on' : ''}" data-p="${i}">${i}</button>`;
+      }
+      pagination.innerHTML = phtml;
+      pagination.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => { state.page = Number(btn.dataset.p); renderItemsTable(); });
+      });
+    }
+
+    // =========== SEARCH & FILTER ===========
+    $('searchInput').addEventListener('input', e => {
+      state.search = e.target.value;
+      state.page = 1;
+      renderItemsTable();
+    });
+    $('catFilter').addEventListener('change', e => {
+      state.filterCat = e.target.value;
+      state.page = 1;
+      renderItemsTable();
+    });
+
+    // =========== ITEM CRUD ===========
+    let editingItemId = null;
+
+    function openItemModal(id = null) {
+      editingItemId = id;
+      const form = $('itemForm');
+      form.reset();
+      $('itemOrder').value = 0;
+      $('deleteItemBtn').style.display = id ? 'flex' : 'none';
+
+      if (id) {
+        $('itemModalTitle').innerHTML = '✏️ تعديل الطبق<button id="closeItemModal">✕</button>';
+        $('saveItemBtn').textContent = '💾 تحديث الطبق';
+        const item = state.items.find(i => i.id == id);
+        if (item) {
+          $('itemId').value = item.id;
+          $('itemName').value = item.name || '';
+          $('itemPrice').value = item.price || 0;
+          $('itemCat').value = item.cat || '';
+          $('itemBadge').value = item.badge || '';
+          $('itemDesc').value = item.desc || '';
+          $('itemImg').value = item.img || '';
+          $('itemOrder').value = item.order ?? 0;
+        }
+      } else {
+        $('itemModalTitle').innerHTML = '🍽️ إضافة طبق جديد<button id="closeItemModal">✕</button>';
+        $('saveItemBtn').textContent = '💾 حفظ الطبق';
+        $('itemId').value = '';
+        if (state.categories.length) $('itemCat').value = state.categories[0].id;
+      }
+      $('itemModal').classList.add('on');
+      // Re-bind close buttons
+      document.querySelectorAll('#closeItemModal, #cancelItemBtn').forEach(el => {
+        el.onclick = () => $('itemModal').classList.remove('on');
+      });
+    }
+
+    $('addItemBtn').addEventListener('click', () => openItemModal());
+
+    $('itemForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const id = $('itemId').value.trim() || Date.now().toString();
+      const payload = {
+        id,
+        name: $('itemName').value.trim(),
+        price: Number($('itemPrice').value || 0),
+        cat: $('itemCat').value,
+        badge: $('itemBadge').value.trim(),
+        desc: $('itemDesc').value.trim(),
+        img: $('itemImg').value.trim(),
+        order: Number($('itemOrder').value || 0)
+      };
+      if (!payload.name || !payload.cat) {
+        showToast('يرجى إدخال اسم الطبق واختيار التصنيف', 'error');
+        return;
+      }
+      try {
+        await set(child(itemsRef, id), payload);
+        showToast(editingItemId ? '✅ تم تحديث الطبق' : '✅ تم إضافة الطبق', 'success');
+        $('itemModal').classList.remove('on');
+      } catch (err) {
+        showToast('خطأ: ' + err.message, 'error');
+      }
+    });
+
+    async function deleteItem(id) {
+      const item = state.items.find(i => i.id == id);
+      if (!confirm(`هل تريد حذف "${item?.name}" نهائياً؟`)) return;
+      try {
+        await remove(child(itemsRef, id));
+        showToast('✅ تم حذف الطبق', 'success');
+      } catch (err) { showToast('خطأ: ' + err.message, 'error'); }
+    }
+
+    $('deleteItemBtn').addEventListener('click', async () => {
+      if (!editingItemId) return;
+      await deleteItem(editingItemId);
+      $('itemModal').classList.remove('on');
+    });
+
+    // Close modals on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(m => {
+      m.addEventListener('click', e => { if (e.target === m) m.classList.remove('on'); });
+    });
+
+    // =========== CATEGORY CRUD ===========
+    let editingCatId = null;
+
+    function openCatModal(id = null) {
+      editingCatId = id;
+      const form = $('catForm');
+      form.reset();
+      $('catOrder').value = 0;
+      $('deleteCatBtn').style.display = id ? 'flex' : 'none';
+
+      if (id) {
+        $('catModalTitle').innerHTML = '✏️ تعديل التصنيف<button id="closeCatModal">✕</button>';
+        const cat = state.categories.find(c => c.id === id);
+        if (cat) {
+          $('catId').value = cat.id;
+          $('catNameId').value = cat.id;
+          $('catName').value = cat.name || '';
+          $('catOrder').value = cat.order ?? 0;
+        }
+      } else {
+        $('catModalTitle').innerHTML = '📂 إضافة تصنيف جديد<button id="closeCatModal">✕</button>';
+        $('catId').value = '';
+        $('catNameId').value = '';
+      }
+      $('catModal').classList.add('on');
+      document.querySelectorAll('#closeCatModal, #cancelCatBtn').forEach(el => {
+        el.onclick = () => $('catModal').classList.remove('on');
+      });
+    }
+
+    $('addCatBtn').addEventListener('click', () => openCatModal());
+
+    $('catForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const id = $('catNameId').value.trim();
+      const name = $('catName').value.trim();
+      const order = Number($('catOrder').value || 0);
+      if (!id || !name) {
+        showToast('يرجى إدخال المعرف والاسم', 'error');
+        return;
+      }
+      try {
+        await set(child(categoriesRef, id), { id, name, order });
+        showToast(editingCatId ? '✅ تم تحديث التصنيف' : '✅ تم إضافة التصنيف', 'success');
+        $('catModal').classList.remove('on');
+      } catch (err) { showToast('خطأ: ' + err.message, 'error'); }
+    });
+
+    $('deleteCatBtn').addEventListener('click', async () => {
+      if (!editingCatId) return;
+      if (!confirm('هل تريد حذف هذا التصنيف؟')) return;
+      try {
+        await remove(child(categoriesRef, editingCatId));
+        $('catModal').classList.remove('on');
+        showToast('✅ تم حذف التصنيف', 'success');
+      } catch (err) { showToast('خطأ: ' + err.message, 'error'); }
+    });
+
+    // =========== SEED ===========
+    async function seedMenu() {
+      if (!confirm('⚠️ سيتم استبدال جميع البيانات الحالية بالقائمة الافتراضية. هل أنت متأكد؟')) return;
+      const btn = $('seedBtn');
+      btn.disabled = true;
+      btn.textContent = '⏳ جارٍ الرفع...';
+      try {
+        const catsObj = {};
+        MENU_SEED.categories.forEach((cat, idx) => { catsObj[cat.id] = { id: cat.id, name: cat.name, order: cat.order ?? idx }; });
+        const itemsObj = {};
+        MENU_SEED.items.forEach((item, idx) => { itemsObj[item.id] = { ...item, order: item.order ?? idx }; });
+        await set(rootRef, { categories: catsObj, items: itemsObj, settings: { lastReset: Date.now(), lastResetBy: 'admin' }, orders: {} });
+        showToast(`✅ تم رفع ${MENU_SEED.categories.length} تصنيف و${MENU_SEED.items.length} طبق`, 'success');
+        $('lastUpdate').textContent = new Date().toLocaleString('ar-IQ');
+      } catch (err) { showToast('خطأ: ' + err.message, 'error'); }
+      finally { btn.disabled = false; btn.textContent = '🚀 رفع القائمة الافتراضية'; }
+    }
+    $('seedBtn').addEventListener('click', seedMenu);
+
+    // =========== TEST CONNECTION ===========
+    $('testBtn').addEventListener('click', async () => {
+      $('testBtn').textContent = '⏳ جاري الفحص...';
+      try {
+        await set(child(rootRef, 'settings/lastTest'), { at: Date.now(), by: 'admin' });
+        const snap = await get(child(rootRef, 'settings/lastTest'));
+        showToast(snap.exists() ? '✅ الاتصال يعمل بشكل طبيعي' : '⚠️ فشل القراءة', snap.exists() ? 'success' : 'error');
+      } catch (err) { showToast('❌ فشل الاتصال: ' + err.message, 'error'); }
+      finally { $('testBtn').textContent = '📡 فحص الاتصال'; }
+    });
+
+    // =========== LOGOUT ===========
+    $('logoutBtn').addEventListener('click', () => {
+      sessionStorage.removeItem(SESSION_KEY);
+      app.style.display = 'none';
+      loginOverlay.style.display = 'flex';
+    });
+
+    // =========== AUTO-LOGIN with session expiry ===========
+    const sessionExpiry = sessionStorage.getItem('taaloolaSessionExpiry');
+    if (sessionStorage.getItem(SESSION_KEY) === 'true' && sessionExpiry && Date.now() < Number(sessionExpiry)) {
+      loginOverlay.style.display = 'none';
+      app.style.display = 'block';
+      enterApp();
+    } else {
+      sessionStorage.removeItem(SESSION_KEY);
+      sessionStorage.removeItem('taaloolaSessionExpiry');
+    }
+
+    // =========== UPDATE LAST RESET ===========
+    get(child(rootRef, 'settings/lastReset')).then(snap => {
+      if (snap.exists()) $('lastUpdate').textContent = new Date(snap.val()).toLocaleString('ar-IQ');
+    }).catch(() => {});
+  </script>
+</body>
+</html>

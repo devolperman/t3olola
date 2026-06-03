@@ -1,0 +1,36 @@
+# Firebase config (contains API keys - public by design but track separately)
+# firebase-config.js
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment / Secrets
+.env
+.env.local
+.env.production
+*.key
+secrets.json
+
+# Node
+node_modules/
+
+# Build / Temp
+dist/
+build/
+*.log
+tmp/
+temp/
+
+# Service Worker cache
+*.cache
