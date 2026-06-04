@@ -368,7 +368,7 @@ export const MENU_SEED = {
       "id": 802,
       "name": "ستيك دجاج حامض وثوم",
       "price": 12000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك دجاج.jpg",
       "desc": "صدر دجاج مشوي متبل بالحامض والثوم وزيت الزيتون، يقدم مع الخضار المشوية والبطاطا المهروسة الدسمة.",
       "cat": "western",
       "badge": "popular"
@@ -386,7 +386,7 @@ export const MENU_SEED = {
       "id": 804,
       "name": "طبق ستيك دجاج بالفطر",
       "price": 12000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك دجاج.jpg",
       "desc": "صدر دجاج مشوي مغطى بصلصة الفطر الكريمية الفاخرة، يقدم مع بطاطس مهروسة ناعمة وخضار طازجة.",
       "cat": "western",
       "badge": ""
@@ -404,7 +404,7 @@ export const MENU_SEED = {
       "id": 806,
       "name": "طبق ستيك دجاج مدخن",
       "price": 12000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك دجاج.jpg",
       "desc": "شرائح صدر دجاج مدخن مشوي بنكهة الشواء الخاصة، يقدم مع البطاطا المقلية وصلصة تعلولة المميزة.",
       "cat": "western",
       "badge": ""
@@ -449,7 +449,7 @@ export const MENU_SEED = {
       "id": 901,
       "name": "طبق ستيك دجاج بالفطر دايت",
       "price": 6000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك دجاج.jpg",
       "desc": "طبق صحي وقليل السعرات من ستيك دجاج بالفطر، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -467,7 +467,7 @@ export const MENU_SEED = {
       "id": 903,
       "name": "طبق ستيك دجاج تعلولة دايت",
       "price": 7000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك دجاج.jpg",
       "desc": "طبق صحي وقليل السعرات من ستيك دجاج تعلولة، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": "popular"
@@ -485,7 +485,7 @@ export const MENU_SEED = {
       "id": 905,
       "name": "طبق ستيك دجاج مدخن دايت",
       "price": 6000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك دجاج.jpg",
       "desc": "طبق صحي وقليل السعرات من ستيك دجاج مدخن، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -503,7 +503,7 @@ export const MENU_SEED = {
       "id": 907,
       "name": "طبق فيليه سمك بالفطر دايت",
       "price": 7000,
-      "img": "img/ستيك.jpg",
+      "img": "img/فيلية سمك.jpg",
       "desc": "طبق صحي وقليل السعرات من فيليه سمك بالفطر، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -512,7 +512,7 @@ export const MENU_SEED = {
       "id": 908,
       "name": "طبق فيليه سمك تعلولة دايت",
       "price": 8000,
-      "img": "img/ستيك.jpg",
+      "img": "img/فيلية سمك.jpg",
       "desc": "طبق صحي وقليل السعرات من فيليه سمك تعلولة، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": "popular"
@@ -521,7 +521,7 @@ export const MENU_SEED = {
       "id": 909,
       "name": "طبق فيليه سمك مدخن دايت",
       "price": 7000,
-      "img": "img/ستيك.jpg",
+      "img": "img/فيلية سمك.jpg",
       "desc": "طبق صحي وقليل السعرات من فيليه سمك مدخن، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -530,7 +530,7 @@ export const MENU_SEED = {
       "id": 1001,
       "name": "حساء",
       "price": 4000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/حساء.jpg",
       "desc": "طبق مقبلات ساخن ومقرمش من حساء، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": "popular"
@@ -539,7 +539,7 @@ export const MENU_SEED = {
       "id": 1002,
       "name": "حلقات بصل مقرمشة",
       "price": 4000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/حلقات بصل.jpg",
       "desc": "طبق مقبلات ساخن ومقرمش من حلقات بصل مقرمشة، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -764,7 +764,7 @@ export const MENU_SEED = {
       "id": 1203,
       "name": "فوتوشيني دجاج",
       "price": 8000,
-      "img": "img/باستا.jpg",
+      "img": "img/فوتوشيني.jpg",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع دجاج.",
       "cat": "pasta",
       "badge": ""
@@ -773,7 +773,7 @@ export const MENU_SEED = {
       "id": 1204,
       "name": "فوتوشيني لحم",
       "price": 8000,
-      "img": "img/باستا.jpg",
+      "img": "img/فوتوشيني.jpg",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع لحم.",
       "cat": "pasta",
       "badge": ""
@@ -962,7 +962,7 @@ export const MENU_SEED = {
       "id": 1414,
       "name": "هوت دوغ",
       "price": 5500,
-      "img": "img/هوت دوع.png",
+      "img": "img/هوت دوع.jpg",
       "desc": "ساندويش هوت دوغ المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -971,7 +971,7 @@ export const MENU_SEED = {
       "id": 1415,
       "name": "ستربس 3 قطع",
       "price": 6000,
-      "img": "img/ستربس.png",
+      "img": "img/ستربس.jpg",
       "desc": "ستربس مقرمش 3 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -980,7 +980,7 @@ export const MENU_SEED = {
       "id": 1416,
       "name": "ستربس 5 قطع",
       "price": 10000,
-      "img": "img/ستربس.png",
+      "img": "img/ستربس.jpg",
       "desc": "ستربس مقرمش 5 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -989,7 +989,7 @@ export const MENU_SEED = {
       "id": 1417,
       "name": "ستربس 8 قطع",
       "price": 16000,
-      "img": "img/ستربس.png",
+      "img": "img/ستربس.jpg",
       "desc": "ستربس مقرمش 8 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -998,7 +998,7 @@ export const MENU_SEED = {
       "id": 1418,
       "name": "ستربس 10 قطع",
       "price": 20000,
-      "img": "img/ستربس.png",
+      "img": "img/ستربس.jpg",
       "desc": "ستربس مقرمش 10 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -1007,7 +1007,7 @@ export const MENU_SEED = {
       "id": 1419,
       "name": "جكن فرايز كرسبي",
       "price": 6000,
-      "img": "img/ستربس.png",
+      "img": "img/ستربس.jpg",
       "desc": "جكن فرايز كرسبي مقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -1637,7 +1637,7 @@ export const MENU_SEED = {
       "id": 2501,
       "name": "آيس كوفي",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/ايس كوفي.jpg",
       "desc": "آيس كوفي مثلج.",
       "cat": "iced_coffee",
       "badge": ""
@@ -2195,7 +2195,7 @@ export const MENU_SEED = {
       "id": 2901,
       "name": "ريد بول",
       "price": 3500,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2204,7 +2204,7 @@ export const MENU_SEED = {
       "id": 2902,
       "name": "ريد بول بلو كرواسون",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول بلو كرواسون.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2213,7 +2213,7 @@ export const MENU_SEED = {
       "id": 2903,
       "name": "ريد بول رمان",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول رمان.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2222,7 +2222,7 @@ export const MENU_SEED = {
       "id": 2904,
       "name": "ريد بول علك بوبي",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول علك بوبي.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2231,7 +2231,7 @@ export const MENU_SEED = {
       "id": 2905,
       "name": "ريد بول فراولة",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول فراولة.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2240,7 +2240,7 @@ export const MENU_SEED = {
       "id": 2906,
       "name": "ريد بول كرز",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول كرز.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2249,7 +2249,7 @@ export const MENU_SEED = {
       "id": 2907,
       "name": "ريد بول ليمون",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول ليمون.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2258,7 +2258,7 @@ export const MENU_SEED = {
       "id": 2908,
       "name": "ريد بول مكسيكي",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "ريد بول مكسيكي.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2267,7 +2267,7 @@ export const MENU_SEED = {
       "id": 2909,
       "name": "تايكر",
       "price": 2500,
-      "img": "img/عصاير.jpeg",
+      "img": "img/تايكر.jpg",
       "desc": "تايكر.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2276,7 +2276,7 @@ export const MENU_SEED = {
       "id": 2910,
       "name": "مكسيكي تايكر",
       "price": 3500,
-      "img": "img/عصاير.jpeg",
+      "img": "img/تايكر.jpg",
       "desc": "مكسيكي تايكر.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2285,7 +2285,7 @@ export const MENU_SEED = {
       "id": 2911,
       "name": "مكسيكي رمان",
       "price": 3500,
-      "img": "img/عصاير.jpeg",
+      "img": "img/ريد-بول.jpg",
       "desc": "مكسيكي رمان.",
       "cat": "energy_drinks",
       "badge": ""
@@ -2294,7 +2294,7 @@ export const MENU_SEED = {
       "id": 3001,
       "name": "ببسي قوطية",
       "price": 750,
-      "img": "img/ببسي-قوطية.png",
+      "img": "img/ببسي-قوطية.jpg",
       "desc": "ببسي قوطية.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2303,7 +2303,7 @@ export const MENU_SEED = {
       "id": 3002,
       "name": "ببسي مكينة",
       "price": 1250,
-      "img": "img/ببسي-مكينة.png",
+      "img": "img/ببسي-مكينة.jpg",
       "desc": "ببسي مكينة.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2312,7 +2312,7 @@ export const MENU_SEED = {
       "id": 3003,
       "name": "ميرندا",
       "price": 750,
-      "img": "img/logo.jpeg",
+      "img": "img/ميرندا.png",
       "desc": "ميرندا.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2321,7 +2321,7 @@ export const MENU_SEED = {
       "id": 3004,
       "name": "سفن",
       "price": 750,
-      "img": "img/سفن.png",
+      "img": "img/سفن.jpg",
       "desc": "سفن.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2330,7 +2330,7 @@ export const MENU_SEED = {
       "id": 3005,
       "name": "ديو",
       "price": 750,
-      "img": "img/ديو.png",
+      "img": "img/ديو.jpg",
       "desc": "ديو.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2339,7 +2339,7 @@ export const MENU_SEED = {
       "id": 3006,
       "name": "تفاح قوطية",
       "price": 750,
-      "img": "img/logo.jpeg",
+      "img": "img/تفاح-قوطية.png",
       "desc": "تفاح قوطية.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2348,7 +2348,7 @@ export const MENU_SEED = {
       "id": 3007,
       "name": "صودا ليمون",
       "price": 2000,
-      "img": "img/logo.jpeg",
+      "img": "img/صودا-ليمون.png",
       "desc": "صودا ليمون.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2357,7 +2357,7 @@ export const MENU_SEED = {
       "id": 3008,
       "name": "لبن",
       "price": 1000,
-      "img": "img/logo.jpeg",
+      "img": "img/لبن.png",
       "desc": "لبن.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2366,7 +2366,7 @@ export const MENU_SEED = {
       "id": 3009,
       "name": "ماء",
       "price": 250,
-      "img": "img/ماء.png",
+      "img": "img/ماء.jpg",
       "desc": "ماء.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2375,7 +2375,7 @@ export const MENU_SEED = {
       "id": 3010,
       "name": "ماء زجاج",
       "price": 1000,
-      "img": "img/logo.jpeg",
+      "img": "img/ماء-زجاج.png",
       "desc": "ماء زجاج.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2420,7 +2420,7 @@ export const MENU_SEED = {
       "id": 3201,
       "name": "وافل أوريو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل أوريو مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2429,7 +2429,7 @@ export const MENU_SEED = {
       "id": 3202,
       "name": "وافل باونتي",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل باونتي مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2438,7 +2438,7 @@ export const MENU_SEED = {
       "id": 3203,
       "name": "وافل بستاشيو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل بستاشيو مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2447,7 +2447,7 @@ export const MENU_SEED = {
       "id": 3204,
       "name": "وافل تويكس",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل تويكس مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2456,7 +2456,7 @@ export const MENU_SEED = {
       "id": 3205,
       "name": "وافل فراولة",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل فراولة مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2465,7 +2465,7 @@ export const MENU_SEED = {
       "id": 3206,
       "name": "وافل فواكه",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل فواكه مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2474,7 +2474,7 @@ export const MENU_SEED = {
       "id": 3207,
       "name": "وافل لوتس",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل لوتس مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2483,7 +2483,7 @@ export const MENU_SEED = {
       "id": 3208,
       "name": "وافل مكسرات",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل مكسرات مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2492,7 +2492,7 @@ export const MENU_SEED = {
       "id": 3209,
       "name": "وافل ميكس",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل ميكس مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2501,7 +2501,7 @@ export const MENU_SEED = {
       "id": 3210,
       "name": "وافل نوتيلا",
       "price": 5000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/وافل.jpg",
       "desc": "وافل نوتيلا مقرمش.",
       "cat": "waffle",
       "badge": ""
