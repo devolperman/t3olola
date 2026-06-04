@@ -863,9 +863,10 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.3s ease;
+        border-color 0.3s ease,
+        opacity 0.5s ease;
       opacity: 0;
       transform: translateY(28px) scale(0.97);
       position: relative;
@@ -900,8 +901,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: var(--transition);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.4s ease;
     }
+    .ic-img img:not([data-loaded]) { opacity: 0.6; filter: blur(10px); }
+    .ic-img img[data-loaded] { opacity: 1; filter: blur(0); }
 
     .ic:hover .ic-img img {
       transform: scale(1.08);
@@ -2402,18 +2405,12 @@
     .ic-placeholder .skeleton-img {
       width: 100%;
       aspect-ratio: 4/3;
-      background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.2s ease-in-out infinite;
     }
 
     .ic-placeholder .skeleton-text {
       height: 14px;
       margin: 12px;
       border-radius: 6px;
-      background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.2s ease-in-out infinite;
     }
 
     .ic-placeholder .skeleton-text:last-child {
@@ -2431,10 +2428,70 @@
       color: var(--tan);
       font-size: 32px;
     }
+
+    /* Loading screen overlay */
+    #loadingScreen {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #loadingScreen.hide {
+      opacity: 0; visibility: hidden; pointer-events: none;
+    }
+    .loading-logo {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; color: #2b1a05; font-weight: 900;
+      animation: loadPulse 1.2s ease-in-out infinite;
+    }
+    @keyframes loadPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.8; }
+    }
+    .loading-text {
+      font-family: 'Changa', sans-serif;
+      font-size: 18px; color: var(--gold-lt);
+      letter-spacing: 1px;
+    }
+    .loading-bar {
+      width: 160px; height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px; overflow: hidden;
+    }
+    .loading-bar-inner {
+      height: 100%; width: 0%;
+      background: var(--gold-gradient);
+      border-radius: 10px;
+      animation: loadBar 2s ease-in-out infinite;
+    }
+    @keyframes loadBar {
+      0% { width: 0%; }
+      50% { width: 100%; }
+      100% { width: 0%; }
+    }
+
+    /* Responsive skeleton for dark theme */
+    .skeleton-dark {
+      background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%) !important;
+      background-size: 200% 100% !important;
+      animation: shimmer 1.2s ease-in-out infinite !important;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loadingScreen">
+    <div class="loading-logo">ت</div>
+    <div class="loading-text">مطعم تعلولة</div>
+    <div class="loading-bar"><div class="loading-bar-inner"></div></div>
+  </div>
 
   <!-- SCROLL PROGRESS BAR -->
   <div id="scrollProgress"></div>
@@ -2681,7 +2738,7 @@
   <!-- Database & Core JavaScript Logic -->
   <script type="module">
     import { database } from './firebase-config.js';
-    import { MENU_SEED } from './menu-seed.js';
+    import { MENU_SEED } from './menu-seed.js?v=2';
     import {
       ref,
       child,
@@ -2763,6 +2820,11 @@
       });
     }
 
+    function hideLoading() {
+      const el = document.getElementById('loadingScreen');
+      if (el) { el.classList.add('hide'); setTimeout(() => el.remove(), 700); }
+    }
+
     function loadFromData(data) {
       let finalData = data;
       const hasItems = data && data.items && (Array.isArray(data.items) ? data.items.length > 0 : Object.keys(data.items).length > 0);
@@ -2788,6 +2850,7 @@
       renderLiveUI();
       populate();
       setTimeout(initReveal, 100);
+      setTimeout(hideLoading, 300);
     }
 
     function renderLiveUI() {
@@ -2843,7 +2906,7 @@
     function rCard(item, delay = 0) {
       const imgPath = item.img ? item.img : '';
       const imgHtml = imgPath
-        ? `<img src="${imgPath}" alt="${item.name}" loading="lazy" onerror="this.outerHTML='<div class=ic-ph><i class=ph-light-ph-fork-knife style=font-size:36px;color:var\\(--tan\\)></i></div>'">`
+        ? `<img src="${imgPath}" alt="${item.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=ic-ph><i class=ph-light-ph-fork-knife style=font-size:36px;color:var\\(--tan\\)></i></div>'">`
         : phTag();
 
       return `<div class="ic" style="animation-delay:${delay}s" onclick="openModal('${item.id}')">
@@ -2865,7 +2928,7 @@
       CATS.forEach(c => {
         const el = document.getElementById(c.id + 'G');
         if (el) {
-          el.innerHTML = Array(3).fill('<div class="ic skeleton" style="height:210px;border-radius:24px;opacity:0.5"></div>').join('');
+          el.innerHTML = Array(3).fill('<div class="ic-placeholder"><div class="skeleton-img skeleton-dark"></div><div class="skeleton-text skeleton-dark"></div><div class="skeleton-text skeleton-dark" style="width:50%"></div></div>').join('');
           if (DB[c.id] && DB[c.id].length > 0) {
             el.innerHTML = DB[c.id].map((it, i) => rCard(it, i * .06)).join('');
           }
@@ -2874,7 +2937,7 @@
 
       const popG = document.getElementById('popG');
       if (popG) {
-        popG.innerHTML = Array(3).fill('<div class="ic skeleton" style="height:210px;border-radius:24px;opacity:0.5"></div>').join('');
+        popG.innerHTML = Array(3).fill('<div class="ic-placeholder"><div class="skeleton-img skeleton-dark"></div><div class="skeleton-text skeleton-dark"></div><div class="skeleton-text skeleton-dark" style="width:50%"></div></div>').join('');
         const popularItems = all().filter(i => i.badge);
         if (popularItems.length > 0) {
           popG.innerHTML = popularItems.map((it, i) => rCard(it, i * .05)).join('');
@@ -2885,7 +2948,7 @@
         const it = getItem(f.id);
         const imgPath = it && it.img ? it.img : '';
         const imgHtml = imgPath
-          ? `<img src="${imgPath}" class="fc-img" alt="${f.name}" onerror="this.outerHTML='<div class=fc-ph><i class=ph-light-ph-fork-knife style=font-size:40px;color:rgba\\(255,255,255,.45\\)></i></div>'">`
+          ? `<img src="${imgPath}" class="fc-img" alt="${f.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=fc-ph><i class=ph-light-ph-fork-knife style=font-size:40px;color:rgba\\(255,255,255,.45\\)></i></div>'">`
           : `<div class="fc-ph"><i class="ph-light ph-fork-knife" style="font-size:40px;color:rgba(255,255,255,.45)"></i></div>`;
 
         return `<div class="fc" style="background:${f.col}" onclick="openModal('${f.id}')">
@@ -2990,7 +3053,7 @@
 
       const imgPath = item.img ? item.img : '';
       const imgHtml = imgPath
-        ? `<img src="${imgPath}" class="m-img" alt="${item.name}" loading="lazy" onerror="this.outerHTML='<div class=m-ph><i class=ph-light-ph-fork-knife style=font-size:72px;color:var\\(--tan\\)></i></div>'">`
+        ? `<img src="${imgPath}" class="m-img" alt="${item.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=m-ph><i class=ph-light-ph-fork-knife style=font-size:72px;color:var\\(--tan\\)></i></div>'">`
         : `<div class="m-ph"><i class="ph-light ph-fork-knife" style="font-size:72px;color:var(--tan)"></i></div>`;
 
       document.getElementById('mImgW').innerHTML = imgHtml;
@@ -3131,7 +3194,7 @@
 
       const cardsHtml = topSuggests.map((s, idx) => {
         const imgHtml = s.img
-          ? `<img src="${s.img}" class="sm-card-img" alt="${s.name}" loading="lazy" onerror="this.outerHTML='<div style=width:100%;height:110px;display:flex;align-items:center;justify-content:center;background:var\\(--bg2\\)><i class=ph-light-ph-fork-knife style=font-size:28px;color:var\\(--tan\\)></i></div>'">`
+          ? `<img src="${s.img}" class="sm-card-img" alt="${s.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div style=width:100%;height:110px;display:flex;align-items:center;justify-content:center;background:var\\(--bg2\\)><i class=ph-light-ph-fork-knife style=font-size:28px;color:var\\(--tan\\)></i></div>'">`
           : `<div class="sm-card-ph"><i class="ph-light ph-fork-knife"></i></div>`;
         return `
           <div class="sm-card" style="animation-delay:${idx * 0.08}s">
