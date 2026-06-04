@@ -595,10 +595,18 @@
 
   <script type="module">
     import { database } from './firebase-config.js';
-    import { MENU_SEED } from './menu-seed.js';
+    // Dynamic import with cache busting used in seedMenu() to always get fresh data
+    let _MENU_SEED = null;
+    async function getMenuSeed() {
+      if (_MENU_SEED) return _MENU_SEED;
+      const mod = await import(`./menu-seed.js?v=${Date.now()}`);
+      _MENU_SEED = mod.MENU_SEED;
+      return _MENU_SEED;
+    }
     import {
       ref, child, onValue, set, update, remove, get
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+
 
     // =========== CONFIG ===========
     const DB_ROOT = 'taaloola_menu';
@@ -1023,14 +1031,17 @@
       if (!confirm('⚠️ سيتم استبدال جميع البيانات الحالية بالقائمة الافتراضية. هل أنت متأكد؟')) return;
       const btn = $('seedBtn');
       btn.disabled = true;
-      btn.textContent = '⏳ جارٍ الرفع...';
+      btn.textContent = '⏳ جارٍ التحميل...';
       try {
+        const fresh = await getMenuSeed();
+        if (!fresh || !fresh.categories || !fresh.items) throw new Error('بيانات القائمة الافتراضية غير صالحة');
         const catsObj = {};
-        MENU_SEED.categories.forEach((cat, idx) => { catsObj[cat.id] = { id: cat.id, name: cat.name, order: cat.order ?? idx }; });
+        fresh.categories.forEach((cat, idx) => { catsObj[cat.id] = { id: cat.id, name: cat.name, order: cat.order ?? idx }; });
         const itemsObj = {};
-        MENU_SEED.items.forEach((item, idx) => { itemsObj[item.id] = { ...item, order: item.order ?? idx }; });
+        fresh.items.forEach((item, idx) => { itemsObj[item.id] = { ...item, order: item.order ?? idx }; });
+        btn.textContent = '⏳ جارٍ الرفع...';
         await set(rootRef, { categories: catsObj, items: itemsObj, settings: { lastReset: Date.now(), lastResetBy: 'admin' }, orders: {} });
-        showToast(`✅ تم رفع ${MENU_SEED.categories.length} تصنيف و${MENU_SEED.items.length} طبق`, 'success');
+        showToast(`✅ تم رفع ${fresh.categories.length} تصنيف و${fresh.items.length} طبق`, 'success');
         $('lastUpdate').textContent = new Date().toLocaleString('ar-IQ');
       } catch (err) { showToast('خطأ: ' + err.message, 'error'); }
       finally { btn.disabled = false; btn.textContent = '🚀 رفع القائمة الافتراضية'; }
