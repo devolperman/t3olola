@@ -1,4 +1,4 @@
-const CACHE_NAME = "taaloola-v5";
+const CACHE_NAME = "taaloola-v6";
 const STATIC_CACHE = [
   "./",
   "./index.html",
@@ -38,16 +38,20 @@ self.addEventListener("fetch", (event) => {
   if (event.request.destination === "image") {
     event.respondWith(
       caches.match(event.request).then((cached) => {
-        const fetchAndCache = fetch(event.request, { mode: 'cors' }).then((res) => {
-          if (res && res.status === 200 && res.type === 'basic' || res.type === 'cors') {
-            try {
-              const cloned = res.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
-            } catch (e) {}
+        if (cached) {
+          fetch(event.request, { mode: 'cors' }).then((res) => {
+            if (res && res.status === 200 && (res.type === 'basic' || res.type === 'cors')) {
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, res.clone())).catch(() => {});
+            }
+          }).catch(() => {});
+          return cached;
+        }
+        return fetch(event.request, { mode: 'cors' }).then((res) => {
+          if (res && res.status === 200 && (res.type === 'basic' || res.type === 'cors')) {
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, res.clone())).catch(() => {});
           }
           return res;
-        }).catch(() => cached);
-        return cached || fetchAndCache;
+        });
       })
     );
     return;
@@ -87,16 +91,13 @@ self.addEventListener("fetch", (event) => {
   // Own assets: cache-first for speed
   event.respondWith(
     caches.match(event.request).then((cached) => {
-      const fetchPromise = fetch(event.request, { mode: 'cors' }).then((res) => {
+      if (cached) return cached;
+      return fetch(event.request, { mode: 'cors' }).then((res) => {
         if (res && res.status === 200) {
-          try {
-            const cloned = res.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
-          } catch (e) {}
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, res.clone())).catch(() => {});
         }
         return res;
-      }).catch(() => cached);
-      return cached || fetchPromise;
+      });
     })
   );
 });
