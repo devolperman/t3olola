@@ -197,7 +197,7 @@ export const MENU_SEED = {
       "id": 605,
       "name": "مخلمة",
       "price": 5000,
-      "img": "img/مخلمه.jpg",
+      "img": "img/مخلمه.webp",
       "desc": "خليط البيض المخفوق مع الطماطم الطازجة والبصل والفلفل الأخضر مطبوخة بالسمن البلدي، أشهر فطور بغدادي أصيل.",
       "cat": "breakfast",
       "badge": "popular"
@@ -242,7 +242,7 @@ export const MENU_SEED = {
       "id": 610,
       "name": "سيت فطور (3 أشخاص)",
       "price": 15000,
-      "img": "img/فطور.jpeg",
+      "img": "img/فطور.webp",
       "desc": "صينية فطور متكاملة لثلاثة أشخاص تشمل بيض عيون، مخلمة، جبن مشكل، خبز صاج طازج، ومشروبات ساخنة.",
       "cat": "breakfast",
       "badge": "popular"
@@ -251,7 +251,7 @@ export const MENU_SEED = {
       "id": 701,
       "name": "قوزي لحم",
       "price": 22000,
-      "img": "img/لحم.jpeg",
+      "img": "img/لحم.webp",
       "desc": "كتف الخروف البلدي المطبوخ ببطء لساعات متواصلة حتى يتهرأ اللحم ويتشرب البهارات العراقية، يُقدَّم فوق أرز العنبر الفاخر بالزبيب واللوز.",
       "cat": "eastern",
       "badge": "popular"
@@ -260,7 +260,7 @@ export const MENU_SEED = {
       "id": 702,
       "name": "دجاج شوي",
       "price": 22000,
-      "img": "img/دجاج-على التمن.jpeg",
+      "img": "img/دجاج-على التمن.webp",
       "desc": "دجاجة كاملة متبلة بخلطة البهارات العراقية واللبن والثوم، مشوية على الفحم بطريقة احترافية حتى تكتسب لوناً ذهبياً فاتح الشهية.",
       "cat": "eastern",
       "badge": "popular"
@@ -269,7 +269,7 @@ export const MENU_SEED = {
       "id": 703,
       "name": "نصف دجاج شوي",
       "price": 15000,
-      "img": "img/دجاج-على التمن.jpeg",
+      "img": "img/دجاج-على التمن.webp",
       "desc": "نصف دجاجة مشوية على الفحم بتتبيلة البهارات الخاصة، تُقدَّم مع خبز الصاج والطرشي والثومية البيضاء.",
       "cat": "eastern",
       "badge": ""
@@ -278,7 +278,7 @@ export const MENU_SEED = {
       "id": 704,
       "name": "برياني دجاج",
       "price": 15000,
-      "img": "img/برياني.jpg",
+      "img": "img/برياني.webp",
       "desc": "أرز البرياني المبخر بالبهارات الهندية وماء الورد مع قطع الدجاج الطرية، مزين بالزبيب والمكسرات المحمصة.",
       "cat": "eastern",
       "badge": "new"
@@ -287,7 +287,7 @@ export const MENU_SEED = {
       "id": 705,
       "name": "برياني لحم",
       "price": 22000,
-      "img": "img/لحم-برياني.jpeg",
+      "img": "img/لحم-برياني.webp",
       "desc": "برياني فاخر بقطع لحم الغنم الطرية مع أرز البسمتي المعطر بالهيل والقرفة والزعفران، يُقدَّم مع صوص الزبادي.",
       "cat": "eastern",
       "badge": ""
@@ -296,7 +296,7 @@ export const MENU_SEED = {
       "id": 706,
       "name": "مقلوبة دجاج",
       "price": 15000,
-      "img": "img/مقلوبة.jpeg",
+      "img": "img/مقلوبة.webp",
       "desc": "طبق المقلوبة الشهير بالأرز والدجاج والخضار المقلية المرتبة في القدر ثم قلبها على الإناء لتكشف عن شكلها الملكي المميز.",
       "cat": "eastern",
       "badge": ""
@@ -305,7 +305,7 @@ export const MENU_SEED = {
       "id": 707,
       "name": "مقلوبة لحم",
       "price": 22000,
-      "img": "img/مقلوبة.jpeg",
+      "img": "img/مقلوبة.webp",
       "desc": "مقلوبة فاخرة بأضلاع لحم الغنم الدسمة والخضار المتنوعة والأرز العطر، وجبة عائلية تقليدية غنية بالنكهات.",
       "cat": "eastern",
       "badge": ""
@@ -314,7 +314,7 @@ export const MENU_SEED = {
       "id": 708,
       "name": "كبسة دجاج",
       "price": 15000,
-      "img": "img/برياني.jpg",
+      "img": "img/برياني.webp",
       "desc": "أرز الكبسة الخليجي المبهر بالبهارات الفواحة مع الدجاج المطبوخ على البخار، يُقدَّم مع الدقوس والسلطة الخليجية.",
       "cat": "eastern",
       "badge": ""
@@ -323,7 +323,7 @@ export const MENU_SEED = {
       "id": 709,
       "name": "كبسة لحم",
       "price": 22000,
-      "img": "img/لحم.jpeg",
+      "img": "img/لحم.webp",
       "desc": "كبسة اللحم الملكية بقطع الضأن على أرز البسمتي المتبل بالزعفران والهيل والقرفة، من أشهر وجبات الضيافة الشرقية.",
       "cat": "eastern",
       "badge": "popular"
@@ -332,7 +332,7 @@ export const MENU_SEED = {
       "id": 710,
       "name": "دولمة",
       "price": 15000,
-      "img": "img/دولمة.jpg",
+      "img": "img/دولمة.webp",
       "desc": "الدولمة العراقية الأصيلة: ورق عنب وبصل وباذنجان محشوة بخلطة الأرز واللحم المفروم والطماطم والبهارات، مطبوخة على نار هادئة.",
       "cat": "eastern",
       "badge": ""
@@ -341,7 +341,7 @@ export const MENU_SEED = {
       "id": 711,
       "name": "تمن ومرق",
       "price": 5000,
-      "img": "img/تمن ومرك.jpeg",
+      "img": "img/تمن ومرك.webp",
       "desc": "أرز الدار العراقي الطازج المطبوخ مع مرق اللحم العطر الغني بالبهارات والخضار، وجبة يومية دافئة ومشبعة.",
       "cat": "eastern",
       "badge": ""
@@ -350,7 +350,7 @@ export const MENU_SEED = {
       "id": 712,
       "name": "طبق دولمة عراقية (شخصين)",
       "price": 15000,
-      "img": "img/دولمة.jpg",
+      "img": "img/دولمة.webp",
       "desc": "الدولمة العراقية بكمية وفيرة تكفي شخصين، محشوة بخليط الأرز واللحم المفروم والبهارات، مطبوخة على نار هادئة.",
       "cat": "eastern",
       "badge": "popular"
@@ -359,7 +359,7 @@ export const MENU_SEED = {
       "id": 801,
       "name": "دجاج كاري",
       "price": 12000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "قطع دجاج طرية مطبوخة بصلصة الكاري الهندية الغنية بالكريمة والبهارات الخاصة، تُقدم مع أرز بسمتي فاخر.",
       "cat": "western",
       "badge": ""
@@ -368,7 +368,7 @@ export const MENU_SEED = {
       "id": 802,
       "name": "ستيك دجاج حامض وثوم",
       "price": 12000,
-      "img": "img/ستيك دجاج.jpg",
+      "img": "img/ستيك دجاج.webp",
       "desc": "صدر دجاج مشوي متبل بالحامض والثوم وزيت الزيتون، يقدم مع الخضار المشوية والبطاطا المهروسة الدسمة.",
       "cat": "western",
       "badge": "popular"
@@ -377,7 +377,7 @@ export const MENU_SEED = {
       "id": 803,
       "name": "ستيك لحم فلفل",
       "price": 16000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "شريحة ستيك لحم بقري فاخرة مشوية بصلصة الفلفل الأسود الحار الغني، تقدم مع خضار سوتيه وبطاطس مقرمشة.",
       "cat": "western",
       "badge": "popular"
@@ -386,7 +386,7 @@ export const MENU_SEED = {
       "id": 804,
       "name": "طبق ستيك دجاج بالفطر",
       "price": 12000,
-      "img": "img/ستيك دجاج.jpg",
+      "img": "img/ستيك دجاج.webp",
       "desc": "صدر دجاج مشوي مغطى بصلصة الفطر الكريمية الفاخرة، يقدم مع بطاطس مهروسة ناعمة وخضار طازجة.",
       "cat": "western",
       "badge": ""
@@ -395,7 +395,7 @@ export const MENU_SEED = {
       "id": 805,
       "name": "طبق ستيك لحم بالفطر",
       "price": 16000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "شريحة لحم مشوية بصلصة الفطر والكريمة الغنية، تقدم مع طبق جانبي من الخضار السوتيه والبطاطا.",
       "cat": "western",
       "badge": ""
@@ -404,7 +404,7 @@ export const MENU_SEED = {
       "id": 806,
       "name": "طبق ستيك دجاج مدخن",
       "price": 12000,
-      "img": "img/ستيك دجاج.jpg",
+      "img": "img/ستيك دجاج.webp",
       "desc": "شرائح صدر دجاج مدخن مشوي بنكهة الشواء الخاصة، يقدم مع البطاطا المقلية وصلصة تعلولة المميزة.",
       "cat": "western",
       "badge": ""
@@ -413,7 +413,7 @@ export const MENU_SEED = {
       "id": 807,
       "name": "طبق ستيك لحم مدخن",
       "price": 16000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "ستيك لحم بقر مدخن ومتبل بخلطة بهارات الشواء الغنية، يقدم مع بطاطس مقرمشة خفيفة.",
       "cat": "western",
       "badge": ""
@@ -422,7 +422,7 @@ export const MENU_SEED = {
       "id": 808,
       "name": "طبق فاهيتا دجاج",
       "price": 12000,
-      "img": "img/فاهيتا.jpg",
+      "img": "img/فاهيتا.webp",
       "desc": "قطع دجاج متبلة ومقلية مع الفلفل الألوان والبصل والبهارات المكسيكية، تُقدم مع صلصات تعلولة.",
       "cat": "western",
       "badge": ""
@@ -431,7 +431,7 @@ export const MENU_SEED = {
       "id": 809,
       "name": "طبق فاهيتا لحم",
       "price": 14000,
-      "img": "img/فاهيتا.jpg",
+      "img": "img/فاهيتا.webp",
       "desc": "شرائح لحم بقري مشوح مع بصل وفلفل ملون وتتبيلة مكسيكية حارة، يقدم مع خبز الصاج الساخن.",
       "cat": "western",
       "badge": ""
@@ -440,7 +440,7 @@ export const MENU_SEED = {
       "id": 810,
       "name": "طبق فلادلفيا",
       "price": 16000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "شرائح لحم بقر رقيقة مع البصل والفلفل وجبن الموزاريلا الذائب، وجبة غربية شهية غنية بالنكهة.",
       "cat": "western",
       "badge": "new"
@@ -449,7 +449,7 @@ export const MENU_SEED = {
       "id": 901,
       "name": "طبق ستيك دجاج بالفطر دايت",
       "price": 6000,
-      "img": "img/ستيك دجاج.jpg",
+      "img": "img/ستيك دجاج.webp",
       "desc": "طبق صحي وقليل السعرات من ستيك دجاج بالفطر، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -458,7 +458,7 @@ export const MENU_SEED = {
       "id": 902,
       "name": "طبق ستيك لحم بالفطر دايت",
       "price": 8000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "طبق صحي وقليل السعرات من ستيك لحم بالفطر، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -467,7 +467,7 @@ export const MENU_SEED = {
       "id": 903,
       "name": "طبق ستيك دجاج تعلولة دايت",
       "price": 7000,
-      "img": "img/ستيك دجاج.jpg",
+      "img": "img/ستيك دجاج.webp",
       "desc": "طبق صحي وقليل السعرات من ستيك دجاج تعلولة، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": "popular"
@@ -476,7 +476,7 @@ export const MENU_SEED = {
       "id": 904,
       "name": "طبق ستيك لحم تعلولة دايت",
       "price": 9000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "طبق صحي وقليل السعرات من ستيك لحم تعلولة، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": "popular"
@@ -485,7 +485,7 @@ export const MENU_SEED = {
       "id": 905,
       "name": "طبق ستيك دجاج مدخن دايت",
       "price": 6000,
-      "img": "img/ستيك دجاج.jpg",
+      "img": "img/ستيك دجاج.webp",
       "desc": "طبق صحي وقليل السعرات من ستيك دجاج مدخن، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -494,7 +494,7 @@ export const MENU_SEED = {
       "id": 906,
       "name": "طبق ستيك لحم مدخن دايت",
       "price": 8000,
-      "img": "img/ستيك.jpg",
+      "img": "img/ستيك.webp",
       "desc": "طبق صحي وقليل السعرات من ستيك لحم مدخن، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -503,7 +503,7 @@ export const MENU_SEED = {
       "id": 907,
       "name": "طبق فيليه سمك بالفطر دايت",
       "price": 7000,
-      "img": "img/فيلية سمك.jpg",
+      "img": "img/فيلية سمك.webp",
       "desc": "طبق صحي وقليل السعرات من فيليه سمك بالفطر، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -512,7 +512,7 @@ export const MENU_SEED = {
       "id": 908,
       "name": "طبق فيليه سمك تعلولة دايت",
       "price": 8000,
-      "img": "img/فيلية سمك.jpg",
+      "img": "img/فيلية سمك.webp",
       "desc": "طبق صحي وقليل السعرات من فيليه سمك تعلولة، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": "popular"
@@ -521,7 +521,7 @@ export const MENU_SEED = {
       "id": 909,
       "name": "طبق فيليه سمك مدخن دايت",
       "price": 7000,
-      "img": "img/فيلية سمك.jpg",
+      "img": "img/فيلية سمك.webp",
       "desc": "طبق صحي وقليل السعرات من فيليه سمك مدخن، يقدم مع تشكيلة من الخضار السوتيه أو المسلوقة المناسبة للدايت.",
       "cat": "diet",
       "badge": ""
@@ -530,7 +530,7 @@ export const MENU_SEED = {
       "id": 1001,
       "name": "حساء",
       "price": 4000,
-      "img": "img/حساء.jpg",
+      "img": "img/حساء.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من حساء، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": "popular"
@@ -539,7 +539,7 @@ export const MENU_SEED = {
       "id": 1002,
       "name": "حلقات بصل مقرمشة",
       "price": 4000,
-      "img": "img/حلقات بصل.jpg",
+      "img": "img/حلقات بصل.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من حلقات بصل مقرمشة، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -548,7 +548,7 @@ export const MENU_SEED = {
       "id": 1003,
       "name": "فنكر",
       "price": 3000,
-      "img": "img/بتيته.jpg",
+      "img": "img/بتيته.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من فنكر، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -557,7 +557,7 @@ export const MENU_SEED = {
       "id": 1004,
       "name": "فنكر بالجبن",
       "price": 4000,
-      "img": "img/بتيته.jpg",
+      "img": "img/بتيته.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من فنكر بالجبن، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -566,7 +566,7 @@ export const MENU_SEED = {
       "id": 1005,
       "name": "فنكر بالجبن والصوص",
       "price": 4500,
-      "img": "img/بتيته.jpg",
+      "img": "img/بتيته.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من فنكر بالجبن والصوص، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -575,7 +575,7 @@ export const MENU_SEED = {
       "id": 1006,
       "name": "فنكر باللحم",
       "price": 6000,
-      "img": "img/بتيته.jpg",
+      "img": "img/بتيته.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من فنكر باللحم، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -584,7 +584,7 @@ export const MENU_SEED = {
       "id": 1007,
       "name": "فنكر فرايز شاورما",
       "price": 6000,
-      "img": "img/بتيته.jpg",
+      "img": "img/بتيته.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من فنكر فرايز شاورما، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": "popular"
@@ -593,7 +593,7 @@ export const MENU_SEED = {
       "id": 1008,
       "name": "فنكر وجز",
       "price": 5000,
-      "img": "img/بتيته.jpg",
+      "img": "img/بتيته.webp",
       "desc": "طبق مقبلات ساخن ومقرمش من فنكر وجز، يقدم كوجبة خفيفة ومثيرة للشهية مع الوجبات الرئيسية.",
       "cat": "hot_appetizers",
       "badge": ""
@@ -602,7 +602,7 @@ export const MENU_SEED = {
       "id": 1501,
       "name": "بابا غنوج",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من بابا غنوج المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -611,7 +611,7 @@ export const MENU_SEED = {
       "id": 1502,
       "name": "باذنجانية",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من باذنجانية المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -620,7 +620,7 @@ export const MENU_SEED = {
       "id": 1503,
       "name": "تبولة",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من تبولة المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -629,7 +629,7 @@ export const MENU_SEED = {
       "id": 1504,
       "name": "جاجيك",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من جاجيك المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -638,7 +638,7 @@ export const MENU_SEED = {
       "id": 1505,
       "name": "حمص",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من حمص المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -647,7 +647,7 @@ export const MENU_SEED = {
       "id": 1506,
       "name": "حمص باللحمة",
       "price": 6000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من حمص باللحمة المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -656,7 +656,7 @@ export const MENU_SEED = {
       "id": 1507,
       "name": "رمانية",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من رمانية المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -665,7 +665,7 @@ export const MENU_SEED = {
       "id": 1508,
       "name": "سلطة تعلولة",
       "price": 7000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة تعلولة المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": "popular"
@@ -674,7 +674,7 @@ export const MENU_SEED = {
       "id": 1509,
       "name": "سلطة جرير",
       "price": 5000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة جرير المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -683,7 +683,7 @@ export const MENU_SEED = {
       "id": 1510,
       "name": "سلطة روسية",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة روسية المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -692,7 +692,7 @@ export const MENU_SEED = {
       "id": 1511,
       "name": "سلطة روكا",
       "price": 6000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة روكا المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -701,7 +701,7 @@ export const MENU_SEED = {
       "id": 1512,
       "name": "سلطة سيزر",
       "price": 6000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة سيزر المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -710,7 +710,7 @@ export const MENU_SEED = {
       "id": 1513,
       "name": "سلطة فتوش",
       "price": 5000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة فتوش المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -719,7 +719,7 @@ export const MENU_SEED = {
       "id": 1514,
       "name": "سلطة فواكه",
       "price": 5000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة فواكه المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -728,7 +728,7 @@ export const MENU_SEED = {
       "id": 1515,
       "name": "سلطة شونذرية",
       "price": 3000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من سلطة شونذرية المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": ""
@@ -737,7 +737,7 @@ export const MENU_SEED = {
       "id": 1516,
       "name": "طبق أورديف",
       "price": 5000,
-      "img": "img/مقبلات.jpg",
+      "img": "img/مقبلات.webp",
       "desc": "طبق مقبلات بارد ومنعش من طبق أورديف المحضر على الطريقة العراقية التراثية بالخضار الطازجة وزيت الزيتون.",
       "cat": "cold_appetizers",
       "badge": "popular"
@@ -746,7 +746,7 @@ export const MENU_SEED = {
       "id": 1201,
       "name": "باستا دجاج",
       "price": 5000,
-      "img": "img/باستا.jpg",
+      "img": "img/باستا.webp",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع دجاج.",
       "cat": "pasta",
       "badge": ""
@@ -755,7 +755,7 @@ export const MENU_SEED = {
       "id": 1202,
       "name": "باستا لحم",
       "price": 6000,
-      "img": "img/باستا.jpg",
+      "img": "img/باستا.webp",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع لحم.",
       "cat": "pasta",
       "badge": ""
@@ -764,7 +764,7 @@ export const MENU_SEED = {
       "id": 1203,
       "name": "فوتوشيني دجاج",
       "price": 8000,
-      "img": "img/فوتوشيني.jpg",
+      "img": "img/فوتوشيني.webp",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع دجاج.",
       "cat": "pasta",
       "badge": ""
@@ -773,7 +773,7 @@ export const MENU_SEED = {
       "id": 1204,
       "name": "فوتوشيني لحم",
       "price": 8000,
-      "img": "img/فوتوشيني.jpg",
+      "img": "img/فوتوشيني.webp",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع لحم.",
       "cat": "pasta",
       "badge": ""
@@ -800,7 +800,7 @@ export const MENU_SEED = {
       "id": 1207,
       "name": "طبق لازانيا",
       "price": 8000,
-      "img": "img/باستا.jpg",
+      "img": "img/باستا.webp",
       "desc": "باستا تعلولة الفاخرة المحضرة بصلصة الكريمة الغنية والجبن الذائب والبهارات الإيطالية مع اللازانيا.",
       "cat": "pasta",
       "badge": "popular"
@@ -809,7 +809,7 @@ export const MENU_SEED = {
       "id": 1420,
       "name": "صاج لحم",
       "price": 6000,
-      "img": "img/صاج.jpg",
+      "img": "img/صاج.webp",
       "desc": "صاج لحم مميز ومقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "saj",
       "badge": "popular"
@@ -881,7 +881,7 @@ export const MENU_SEED = {
       "id": 1405,
       "name": "فلادلفيا",
       "price": 6000,
-      "img": "img/ساندويش.jpg",
+      "img": "img/ساندويش.webp",
       "desc": "ساندويش فلادلفيا المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -899,7 +899,7 @@ export const MENU_SEED = {
       "id": 1407,
       "name": "كرسبي",
       "price": 6000,
-      "img": "img/ساندويش.jpg",
+      "img": "img/ساندويش.webp",
       "desc": "ساندويش كرسبي المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -917,7 +917,7 @@ export const MENU_SEED = {
       "id": 1409,
       "name": "سكالوب دجاج",
       "price": 5000,
-      "img": "img/ساندويش.jpg",
+      "img": "img/ساندويش.webp",
       "desc": "ساندويش سكالوب دجاج المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -944,7 +944,7 @@ export const MENU_SEED = {
       "id": 1412,
       "name": "ستيك دجاج",
       "price": 6000,
-      "img": "img/ساندويش.jpg",
+      "img": "img/ساندويش.webp",
       "desc": "ساندويش ستيك دجاج المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -953,7 +953,7 @@ export const MENU_SEED = {
       "id": 1413,
       "name": "كاري دجاج",
       "price": 5000,
-      "img": "img/ساندويش.jpg",
+      "img": "img/ساندويش.webp",
       "desc": "ساندويش كاري دجاج المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -962,7 +962,7 @@ export const MENU_SEED = {
       "id": 1414,
       "name": "هوت دوغ",
       "price": 5500,
-      "img": "img/هوت دوع.jpg",
+      "img": "img/هوت دوع.webp",
       "desc": "ساندويش هوت دوغ المميز والمقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "sandwiches",
       "badge": ""
@@ -971,7 +971,7 @@ export const MENU_SEED = {
       "id": 1415,
       "name": "ستربس 3 قطع",
       "price": 6000,
-      "img": "img/ستربس.jpg",
+      "img": "img/ستربس.webp",
       "desc": "ستربس مقرمش 3 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -980,7 +980,7 @@ export const MENU_SEED = {
       "id": 1416,
       "name": "ستربس 5 قطع",
       "price": 10000,
-      "img": "img/ستربس.jpg",
+      "img": "img/ستربس.webp",
       "desc": "ستربس مقرمش 5 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -989,7 +989,7 @@ export const MENU_SEED = {
       "id": 1417,
       "name": "ستربس 8 قطع",
       "price": 16000,
-      "img": "img/ستربس.jpg",
+      "img": "img/ستربس.webp",
       "desc": "ستربس مقرمش 8 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -998,7 +998,7 @@ export const MENU_SEED = {
       "id": 1418,
       "name": "ستربس 10 قطع",
       "price": 20000,
-      "img": "img/ستربس.jpg",
+      "img": "img/ستربس.webp",
       "desc": "ستربس مقرمش 10 قطع، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -1007,7 +1007,7 @@ export const MENU_SEED = {
       "id": 1419,
       "name": "جكن فرايز كرسبي",
       "price": 6000,
-      "img": "img/ستربس.jpg",
+      "img": "img/ستربس.webp",
       "desc": "جكن فرايز كرسبي مقرمش، محضر بأجود المكونات الطازجة والتوابل الخاصة من تعلولة.",
       "cat": "strips",
       "badge": ""
@@ -1016,7 +1016,7 @@ export const MENU_SEED = {
       "id": 1301,
       "name": "برغر لحم تعلولة",
       "price": 10000,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر تعلولة الفاخر المحضر بقطع اللحم البلدي الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": "popular"
@@ -1025,7 +1025,7 @@ export const MENU_SEED = {
       "id": 1302,
       "name": "برغر دجاج تعلولة",
       "price": 8000,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر تعلولة الفاخر المحضر بقطع الدجاج البلدي الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": "popular"
@@ -1034,7 +1034,7 @@ export const MENU_SEED = {
       "id": 1303,
       "name": "برغر لحم كلاسك",
       "price": 6000,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر لحم كلاسك المحضر بقطع اللحم الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": ""
@@ -1088,7 +1088,7 @@ export const MENU_SEED = {
       "id": 1309,
       "name": "برغر لحم بالفطر",
       "price": 7000,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر لحم بالفطر المحضر بقطع اللحم الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": ""
@@ -1097,7 +1097,7 @@ export const MENU_SEED = {
       "id": 1310,
       "name": "برغر دجاج بالفطر",
       "price": 6500,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر دجاج بالفطر المحضر بقطع الدجاج الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": ""
@@ -1106,7 +1106,7 @@ export const MENU_SEED = {
       "id": 1311,
       "name": "برغر لحم محشي",
       "price": 7000,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر لحم محشي المحضر بقطع اللحم الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": ""
@@ -1115,7 +1115,7 @@ export const MENU_SEED = {
       "id": 1312,
       "name": "برغر دجاج محشي",
       "price": 6000,
-      "img": "img/برجر.jpg",
+      "img": "img/برجر.webp",
       "desc": "برغر دجاج محشي المحضر بقطع الدجاج الطازج مع الخس والطماطم والصلصات الخاصة.",
       "cat": "burger",
       "badge": ""
@@ -1142,7 +1142,7 @@ export const MENU_SEED = {
       "id": 1103,
       "name": "ريزو بافلو",
       "price": 6500,
-      "img": "img/ريزو.jpg",
+      "img": "img/ريزو.webp",
       "desc": "طبق ريزو بافلو الشهي مع قطع الدجاج المقرمشة والصلصات الخاصة.",
       "cat": "rizo",
       "badge": ""
@@ -1151,7 +1151,7 @@ export const MENU_SEED = {
       "id": 1104,
       "name": "ريزو بالجبن",
       "price": 6500,
-      "img": "img/ريزو.jpg",
+      "img": "img/ريزو.webp",
       "desc": "طبق ريزو بالجبن الشهي مع قطع الدجاج المقرمشة والصلصات الخاصة.",
       "cat": "rizo",
       "badge": ""
@@ -1160,7 +1160,7 @@ export const MENU_SEED = {
       "id": 1105,
       "name": "ريزو مدخن",
       "price": 6500,
-      "img": "img/ريزو.jpg",
+      "img": "img/ريزو.webp",
       "desc": "طبق ريزو مدخن الشهي مع قطع الدجاج المقرمشة والصلصات الخاصة.",
       "cat": "rizo",
       "badge": ""
@@ -1169,7 +1169,7 @@ export const MENU_SEED = {
       "id": 1106,
       "name": "ريزو شاورما لحم",
       "price": 7000,
-      "img": "img/ريزو.jpg",
+      "img": "img/ريزو.webp",
       "desc": "طبق ريزو شاورما لحم الشهي مع قطع اللحم المقرمشة والصلصات الخاصة.",
       "cat": "rizo",
       "badge": ""
@@ -1178,7 +1178,7 @@ export const MENU_SEED = {
       "id": 1107,
       "name": "ريزو شاورما دجاج",
       "price": 6000,
-      "img": "img/ريزو.jpg",
+      "img": "img/ريزو.webp",
       "desc": "طبق ريزو شاورما دجاج الشهي مع قطع الدجاج المقرمشة والصلصات الخاصة.",
       "cat": "rizo",
       "badge": ""
@@ -1187,7 +1187,7 @@ export const MENU_SEED = {
       "id": 2101,
       "name": "بيتزا الفصول الأربعة كبير",
       "price": 12000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا الفصول الأربعة حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1196,7 +1196,7 @@ export const MENU_SEED = {
       "id": 2102,
       "name": "بيتزا الفصول الأربعة وسط",
       "price": 10000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا الفصول الأربعة حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1205,7 +1205,7 @@ export const MENU_SEED = {
       "id": 2103,
       "name": "بيتزا مشكل كبير",
       "price": 12000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا مشكل حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1214,7 +1214,7 @@ export const MENU_SEED = {
       "id": 2104,
       "name": "بيتزا مشكل وسط",
       "price": 10000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا مشكل حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1223,7 +1223,7 @@ export const MENU_SEED = {
       "id": 2105,
       "name": "بيتزا شاورما لحم كبير",
       "price": 12000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا شاورما لحم حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1232,7 +1232,7 @@ export const MENU_SEED = {
       "id": 2106,
       "name": "بيتزا شاورما لحم وسط",
       "price": 10000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا شاورما لحم حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1241,7 +1241,7 @@ export const MENU_SEED = {
       "id": 2107,
       "name": "بيتزا شاورما دجاج كبير",
       "price": 10000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا شاورما دجاج حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1250,7 +1250,7 @@ export const MENU_SEED = {
       "id": 2108,
       "name": "بيتزا شاورما دجاج وسط",
       "price": 8000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا شاورما دجاج حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1259,7 +1259,7 @@ export const MENU_SEED = {
       "id": 2109,
       "name": "بيتزا خضار كبير",
       "price": 9000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا خضار حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1268,7 +1268,7 @@ export const MENU_SEED = {
       "id": 2110,
       "name": "بيتزا خضار وسط",
       "price": 7000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا خضار حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1277,7 +1277,7 @@ export const MENU_SEED = {
       "id": 2111,
       "name": "بيتزا ببروني كبير",
       "price": 10000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا ببروني حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1286,7 +1286,7 @@ export const MENU_SEED = {
       "id": 2112,
       "name": "بيتزا ببروني وسط",
       "price": 8000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا ببروني حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1295,7 +1295,7 @@ export const MENU_SEED = {
       "id": 2113,
       "name": "بيتزا مارغريتا كبير",
       "price": 9000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا مارغريتا حجم كبير مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1304,7 +1304,7 @@ export const MENU_SEED = {
       "id": 2114,
       "name": "بيتزا مارغريتا وسط",
       "price": 7000,
-      "img": "img/بيتزا.jpg",
+      "img": "img/بيتزا.webp",
       "desc": "بيتزا مارغريتا حجم وسط مقرمشة ولذيذة.",
       "cat": "pizza",
       "badge": ""
@@ -1322,7 +1322,7 @@ export const MENU_SEED = {
       "id": 2202,
       "name": "ميلك شيك مكسرات",
       "price": 4000,
-      "img": "img/ميلك-شيلك.jpeg",
+      "img": "img/ميلك-شيلك.webp",
       "desc": "ميلك شيك مكسرات بارد ومنعش.",
       "cat": "milkshake",
       "badge": ""
@@ -1349,7 +1349,7 @@ export const MENU_SEED = {
       "id": 2205,
       "name": "ميلك شيك تويكس",
       "price": 4000,
-      "img": "img/ميلك-شيلك.jpeg",
+      "img": "img/ميلك-شيلك.webp",
       "desc": "ميلك شيك تويكس بارد ومنعش.",
       "cat": "milkshake",
       "badge": ""
@@ -1421,7 +1421,7 @@ export const MENU_SEED = {
       "id": 2213,
       "name": "ميلك شيك نوتيلا",
       "price": 4000,
-      "img": "img/ميلك-شيلك.jpeg",
+      "img": "img/ميلك-شيلك.webp",
       "desc": "ميلك شيك نوتيلا بارد ومنعش.",
       "cat": "milkshake",
       "badge": ""
@@ -1439,7 +1439,7 @@ export const MENU_SEED = {
       "id": 2301,
       "name": "قهوة تركية سنكل",
       "price": 3000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة تركية سنكل ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1448,7 +1448,7 @@ export const MENU_SEED = {
       "id": 2302,
       "name": "قهوة تركية دبل",
       "price": 5000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة تركية دبل ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1457,7 +1457,7 @@ export const MENU_SEED = {
       "id": 2303,
       "name": "اسبريسو سنكل",
       "price": 3500,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "اسبريسو سنكل ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1466,7 +1466,7 @@ export const MENU_SEED = {
       "id": 2304,
       "name": "اسبريسو دبل",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "اسبريسو دبل ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1475,7 +1475,7 @@ export const MENU_SEED = {
       "id": 2305,
       "name": "قهوة فرنسية",
       "price": 3000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة فرنسية ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1484,7 +1484,7 @@ export const MENU_SEED = {
       "id": 2306,
       "name": "قهوة إيطالية بالنوتيلا",
       "price": 3500,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة إيطالية بالنوتيلا ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1493,7 +1493,7 @@ export const MENU_SEED = {
       "id": 2307,
       "name": "قهوة بالبندق",
       "price": 3000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة بالبندق ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1502,7 +1502,7 @@ export const MENU_SEED = {
       "id": 2308,
       "name": "قهوة جوكليت",
       "price": 3500,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة جوكليت ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1511,7 +1511,7 @@ export const MENU_SEED = {
       "id": 2309,
       "name": "قهوة كالكسي",
       "price": 3500,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "قهوة كالكسي ساخنة.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1520,7 +1520,7 @@ export const MENU_SEED = {
       "id": 2310,
       "name": "سبانش لاتيه",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "سبانش لاتيه ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1529,7 +1529,7 @@ export const MENU_SEED = {
       "id": 2311,
       "name": "كابوتشينو",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "كابوتشينو ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1538,7 +1538,7 @@ export const MENU_SEED = {
       "id": 2312,
       "name": "كافيه لاتيه",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "كافيه لاتيه ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1547,7 +1547,7 @@ export const MENU_SEED = {
       "id": 2313,
       "name": "موكا كافيه",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "موكا كافيه ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1556,7 +1556,7 @@ export const MENU_SEED = {
       "id": 2314,
       "name": "نسكافيه بلاك",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "نسكافيه بلاك ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1565,7 +1565,7 @@ export const MENU_SEED = {
       "id": 2315,
       "name": "نسكافيه بالحليب",
       "price": 4000,
-      "img": "img/كهوة-حليب.jpeg",
+      "img": "img/كهوة-حليب.webp",
       "desc": "نسكافيه بالحليب ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1574,7 +1574,7 @@ export const MENU_SEED = {
       "id": 2316,
       "name": "هوت تشوكليت",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "هوت تشوكليت ساخن.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1583,7 +1583,7 @@ export const MENU_SEED = {
       "id": 2317,
       "name": "كراميل فرابشينو",
       "price": 4000,
-      "img": "img/كهوة.jpeg",
+      "img": "img/كهوة.webp",
       "desc": "كراميل فرابشينو بارد.",
       "cat": "hot_drinks",
       "badge": ""
@@ -1592,7 +1592,7 @@ export const MENU_SEED = {
       "id": 2401,
       "name": "شاي وحليب",
       "price": 2000,
-      "img": "img/جاي.jpeg",
+      "img": "img/جاي.webp",
       "desc": "شاي وحليب ساخن.",
       "cat": "tea",
       "badge": ""
@@ -1601,7 +1601,7 @@ export const MENU_SEED = {
       "id": 2402,
       "name": "ككاو بالحليب",
       "price": 4000,
-      "img": "img/جاي.jpeg",
+      "img": "img/جاي.webp",
       "desc": "ككاو بالحليب ساخن.",
       "cat": "tea",
       "badge": ""
@@ -1610,7 +1610,7 @@ export const MENU_SEED = {
       "id": 2403,
       "name": "شاي ليمون إيطالي",
       "price": 2000,
-      "img": "img/جاي.jpeg",
+      "img": "img/جاي.webp",
       "desc": "شاي ليمون إيطالي.",
       "cat": "tea",
       "badge": ""
@@ -1619,7 +1619,7 @@ export const MENU_SEED = {
       "id": 2404,
       "name": "شاي خوخ مثلج",
       "price": 4000,
-      "img": "img/جاي.jpeg",
+      "img": "img/جاي.webp",
       "desc": "شاي خوخ مثلج.",
       "cat": "tea",
       "badge": ""
@@ -1628,7 +1628,7 @@ export const MENU_SEED = {
       "id": 2405,
       "name": "شاي عراقي",
       "price": 1250,
-      "img": "img/جاي.jpeg",
+      "img": "img/جاي.webp",
       "desc": "شاي عراقي أصيل.",
       "cat": "tea",
       "badge": ""
@@ -1664,7 +1664,7 @@ export const MENU_SEED = {
       "id": 2601,
       "name": "عصير برتقال",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير برتقال طازج.",
       "cat": "juices",
       "badge": ""
@@ -1673,7 +1673,7 @@ export const MENU_SEED = {
       "id": 2602,
       "name": "عصير برتقال وجزر",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير برتقال وجزر طازج.",
       "cat": "juices",
       "badge": ""
@@ -1682,7 +1682,7 @@ export const MENU_SEED = {
       "id": 2603,
       "name": "عصير برتقال ونعناع",
       "price": 4000,
-      "img": "img/عصير ابرتقال ونعناع.jpeg",
+      "img": "img/عصير ابرتقال ونعناع.webp",
       "desc": "عصير برتقال ونعناع طازج.",
       "cat": "juices",
       "badge": ""
@@ -1691,7 +1691,7 @@ export const MENU_SEED = {
       "id": 2604,
       "name": "عصير بطيخ",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير بطيخ طازج.",
       "cat": "juices",
       "badge": ""
@@ -1700,7 +1700,7 @@ export const MENU_SEED = {
       "id": 2605,
       "name": "عصير بولي ميكس بالمكسرات",
       "price": 5000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير بولي ميكس بالمكسرات.",
       "cat": "juices",
       "badge": ""
@@ -1709,7 +1709,7 @@ export const MENU_SEED = {
       "id": 2606,
       "name": "عصير تروبيكل",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير تروبيكل طازج.",
       "cat": "juices",
       "badge": ""
@@ -1718,7 +1718,7 @@ export const MENU_SEED = {
       "id": 2607,
       "name": "عصير تفاح أخضر+أحمر",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير تفاح أخضر وأحمر طازج.",
       "cat": "juices",
       "badge": ""
@@ -1727,7 +1727,7 @@ export const MENU_SEED = {
       "id": 2608,
       "name": "عصير حمضيات",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير حمضيات طازج.",
       "cat": "juices",
       "badge": ""
@@ -1736,7 +1736,7 @@ export const MENU_SEED = {
       "id": 2609,
       "name": "عصير خوخ",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير خوخ طازج.",
       "cat": "juices",
       "badge": ""
@@ -1745,7 +1745,7 @@ export const MENU_SEED = {
       "id": 2610,
       "name": "عصير رمان",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير رمان طازج.",
       "cat": "juices",
       "badge": ""
@@ -1754,7 +1754,7 @@ export const MENU_SEED = {
       "id": 2611,
       "name": "عصير فراولة",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير فراولة طازج.",
       "cat": "juices",
       "badge": ""
@@ -1763,7 +1763,7 @@ export const MENU_SEED = {
       "id": 2612,
       "name": "عصير كلاسك",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير كلاسك طازج.",
       "cat": "juices",
       "badge": ""
@@ -1772,7 +1772,7 @@ export const MENU_SEED = {
       "id": 2613,
       "name": "عصير كوكتيل VIP",
       "price": 6000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير كوكتيل VIP طازج.",
       "cat": "juices",
       "badge": ""
@@ -1781,7 +1781,7 @@ export const MENU_SEED = {
       "id": 2614,
       "name": "عصير كوكتيل حمضيات",
       "price": 5000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير كوكتيل حمضيات طازج.",
       "cat": "juices",
       "badge": ""
@@ -1790,7 +1790,7 @@ export const MENU_SEED = {
       "id": 2615,
       "name": "عصير كوكتيل سبيشل",
       "price": 5000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير كوكتيل سبيشل طازج.",
       "cat": "juices",
       "badge": ""
@@ -1799,7 +1799,7 @@ export const MENU_SEED = {
       "id": 2616,
       "name": "عصير كوكتيل فواكه",
       "price": 5000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير كوكتيل فواكه طازج.",
       "cat": "juices",
       "badge": ""
@@ -1808,7 +1808,7 @@ export const MENU_SEED = {
       "id": 2617,
       "name": "عصير كيوي",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير كيوي طازج.",
       "cat": "juices",
       "badge": ""
@@ -1817,7 +1817,7 @@ export const MENU_SEED = {
       "id": 2618,
       "name": "عصير ليمون",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير ليمون طازج.",
       "cat": "juices",
       "badge": ""
@@ -1826,7 +1826,7 @@ export const MENU_SEED = {
       "id": 2619,
       "name": "عصير ليمون ونعناع",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير ليمون ونعناع طازج.",
       "cat": "juices",
       "badge": ""
@@ -1835,7 +1835,7 @@ export const MENU_SEED = {
       "id": 2620,
       "name": "عصير مانجو",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير مانجو طازج.",
       "cat": "juices",
       "badge": ""
@@ -1844,7 +1844,7 @@ export const MENU_SEED = {
       "id": 2621,
       "name": "عصير موز أوريو",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز أوريو طازج.",
       "cat": "juices",
       "badge": ""
@@ -1853,7 +1853,7 @@ export const MENU_SEED = {
       "id": 2622,
       "name": "عصير موز حليب",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز حليب طازج.",
       "cat": "juices",
       "badge": ""
@@ -1862,7 +1862,7 @@ export const MENU_SEED = {
       "id": 2623,
       "name": "عصير موز حمضيات",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز حمضيات طازج.",
       "cat": "juices",
       "badge": ""
@@ -1871,7 +1871,7 @@ export const MENU_SEED = {
       "id": 2624,
       "name": "عصير موز رمان",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز رمان طازج.",
       "cat": "juices",
       "badge": ""
@@ -1880,7 +1880,7 @@ export const MENU_SEED = {
       "id": 2625,
       "name": "عصير موز فراولة",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز فراولة طازج.",
       "cat": "juices",
       "badge": ""
@@ -1889,7 +1889,7 @@ export const MENU_SEED = {
       "id": 2626,
       "name": "عصير موز كراميل",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز كراميل طازج.",
       "cat": "juices",
       "badge": ""
@@ -1898,7 +1898,7 @@ export const MENU_SEED = {
       "id": 2627,
       "name": "عصير موز مكسرات بالعسل",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز مكسرات بالعسل طازج.",
       "cat": "juices",
       "badge": ""
@@ -1907,7 +1907,7 @@ export const MENU_SEED = {
       "id": 2628,
       "name": "عصير موز نستله",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز نستله طازج.",
       "cat": "juices",
       "badge": ""
@@ -1916,7 +1916,7 @@ export const MENU_SEED = {
       "id": 2629,
       "name": "عصير موز نوتيلا",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير موز نوتيلا طازج.",
       "cat": "juices",
       "badge": ""
@@ -1925,7 +1925,7 @@ export const MENU_SEED = {
       "id": 2630,
       "name": "عصير أناناس",
       "price": 4000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير أناناس طازج.",
       "cat": "juices",
       "badge": ""
@@ -1934,7 +1934,7 @@ export const MENU_SEED = {
       "id": 2631,
       "name": "عصير أفوكادو",
       "price": 7000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "عصير أفوكادو طازج.",
       "cat": "juices",
       "badge": ""
@@ -1943,7 +1943,7 @@ export const MENU_SEED = {
       "id": 2632,
       "name": "كوكتيل تعلولة",
       "price": 6000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "كوكتيل تعلولة الطازج والمميز.",
       "cat": "juices",
       "badge": ""
@@ -2042,7 +2042,7 @@ export const MENU_SEED = {
       "id": 1801,
       "name": "موهيتو بلو كرواسو",
       "price": 4000,
-      "img": "img/موهيتو ازرك.jpeg",
+      "img": "img/موهيتو ازرك.webp",
       "desc": "موهيتو بلو كرواسو منعش.",
       "cat": "mojito",
       "badge": ""
@@ -2051,7 +2051,7 @@ export const MENU_SEED = {
       "id": 1802,
       "name": "موهيتو توت",
       "price": 4000,
-      "img": "img/موهيتو.jpg",
+      "img": "img/موهيتو.webp",
       "desc": "موهيتو توت منعش.",
       "cat": "mojito",
       "badge": "popular"
@@ -2060,7 +2060,7 @@ export const MENU_SEED = {
       "id": 1803,
       "name": "موهيتو جوز الهند",
       "price": 4000,
-      "img": "img/موهيتو.jpg",
+      "img": "img/موهيتو.webp",
       "desc": "موهيتو جوز الهند منعش.",
       "cat": "mojito",
       "badge": ""
@@ -2069,7 +2069,7 @@ export const MENU_SEED = {
       "id": 1804,
       "name": "موهيتو علك بوبي",
       "price": 4000,
-      "img": "img/موهيتو.jpg",
+      "img": "img/موهيتو.webp",
       "desc": "موهيتو علك بوبي منعش.",
       "cat": "mojito",
       "badge": ""
@@ -2078,7 +2078,7 @@ export const MENU_SEED = {
       "id": 1805,
       "name": "موهيتو فراولة",
       "price": 4000,
-      "img": "img/موهيتو.jpeg",
+      "img": "img/موهيتو.webp",
       "desc": "موهيتو فراولة منعش.",
       "cat": "mojito",
       "badge": ""
@@ -2087,7 +2087,7 @@ export const MENU_SEED = {
       "id": 1806,
       "name": "موهيتو كرز",
       "price": 4000,
-      "img": "img/موهيتو.jpeg",
+      "img": "img/موهيتو.webp",
       "desc": "موهيتو كرز منعش.",
       "cat": "mojito",
       "badge": ""
@@ -2096,7 +2096,7 @@ export const MENU_SEED = {
       "id": 1807,
       "name": "موهيتو ليمون",
       "price": 4000,
-      "img": "img/موهيتو.jpg",
+      "img": "img/موهيتو.webp",
       "desc": "موهيتو ليمون منعش.",
       "cat": "mojito",
       "badge": "popular"
@@ -2105,7 +2105,7 @@ export const MENU_SEED = {
       "id": 1901,
       "name": "فريز كيوي",
       "price": 3500,
-      "img": "img/فريز.jpg",
+      "img": "img/فريز.webp",
       "desc": "مشروب فريز كيوي مبرد ومنعش.",
       "cat": "freeze",
       "badge": ""
@@ -2114,7 +2114,7 @@ export const MENU_SEED = {
       "id": 1902,
       "name": "فريز فواكه استوائية",
       "price": 3500,
-      "img": "img/فريز.jpg",
+      "img": "img/فريز.webp",
       "desc": "مشروب فريز فواكه استوائية مبرد ومنعش.",
       "cat": "freeze",
       "badge": ""
@@ -2123,7 +2123,7 @@ export const MENU_SEED = {
       "id": 1903,
       "name": "فريز علج بوبي",
       "price": 3500,
-      "img": "img/فريز.jpg",
+      "img": "img/فريز.webp",
       "desc": "مشروب فريز علج بوبي مبرد ومنعش.",
       "cat": "freeze",
       "badge": ""
@@ -2132,7 +2132,7 @@ export const MENU_SEED = {
       "id": 1904,
       "name": "فريز تفاح أخضر",
       "price": 3500,
-      "img": "img/فريز.jpg",
+      "img": "img/فريز.webp",
       "desc": "مشروب فريز تفاح أخضر مبرد ومنعش.",
       "cat": "freeze",
       "badge": ""
@@ -2141,7 +2141,7 @@ export const MENU_SEED = {
       "id": 1905,
       "name": "فريز خوخ",
       "price": 3500,
-      "img": "img/فريز.jpg",
+      "img": "img/فريز.webp",
       "desc": "مشروب فريز خوخ مبرد ومنعش.",
       "cat": "freeze",
       "badge": ""
@@ -2150,7 +2150,7 @@ export const MENU_SEED = {
       "id": 1906,
       "name": "فريز هاواي",
       "price": 3500,
-      "img": "img/فريز.jpg",
+      "img": "img/فريز.webp",
       "desc": "مشروب فريز هاواي مبرد ومنعش.",
       "cat": "freeze",
       "badge": ""
@@ -2159,7 +2159,7 @@ export const MENU_SEED = {
       "id": 2801,
       "name": "فينو زبيب",
       "price": 2000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "فينو زبيب بارد.",
       "cat": "vino",
       "badge": ""
@@ -2168,7 +2168,7 @@ export const MENU_SEED = {
       "id": 2802,
       "name": "فينو ليمون",
       "price": 2000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "فينو ليمون بارد.",
       "cat": "vino",
       "badge": ""
@@ -2177,7 +2177,7 @@ export const MENU_SEED = {
       "id": 2803,
       "name": "فينو بلوبيري بالليمون",
       "price": 2000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "فينو بلوبيري بالليمون بارد.",
       "cat": "vino",
       "badge": ""
@@ -2186,7 +2186,7 @@ export const MENU_SEED = {
       "id": 2804,
       "name": "فينو كوكتيل",
       "price": 2000,
-      "img": "img/عصاير.jpeg",
+      "img": "img/عصاير.webp",
       "desc": "فينو كوكتيل بارد.",
       "cat": "vino",
       "badge": ""
@@ -2312,7 +2312,7 @@ export const MENU_SEED = {
       "id": 3003,
       "name": "ميرندا",
       "price": 750,
-      "img": "img/ميرندا.png",
+      "img": "img/ميرندا.webp",
       "desc": "ميرندا.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2339,7 +2339,7 @@ export const MENU_SEED = {
       "id": 3006,
       "name": "تفاح قوطية",
       "price": 750,
-      "img": "img/تفاح-قوطية.png",
+      "img": "img/تفاح-قوطية.webp",
       "desc": "تفاح قوطية.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2348,7 +2348,7 @@ export const MENU_SEED = {
       "id": 3007,
       "name": "صودا ليمون",
       "price": 2000,
-      "img": "img/صودا-ليمون.png",
+      "img": "img/صودا-ليمون.webp",
       "desc": "صودا ليمون.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2357,7 +2357,7 @@ export const MENU_SEED = {
       "id": 3008,
       "name": "لبن",
       "price": 1000,
-      "img": "img/لبن.png",
+      "img": "img/لبن.webp",
       "desc": "لبن.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2375,7 +2375,7 @@ export const MENU_SEED = {
       "id": 3010,
       "name": "ماء زجاج",
       "price": 1000,
-      "img": "img/ماء-زجاج.png",
+      "img": "img/ماء-زجاج.webp",
       "desc": "ماء زجاج.",
       "cat": "soft_drinks",
       "badge": ""
@@ -2384,7 +2384,7 @@ export const MENU_SEED = {
       "id": 3101,
       "name": "حليب",
       "price": 2000,
-      "img": "img/حليب.jpg",
+      "img": "img/حليب.webp",
       "desc": "حليب ساخن.",
       "cat": "milk",
       "badge": ""
@@ -2393,7 +2393,7 @@ export const MENU_SEED = {
       "id": 3102,
       "name": "حليب بالنوتيلا",
       "price": 3000,
-      "img": "img/حليب.jpg",
+      "img": "img/حليب.webp",
       "desc": "حليب بالنوتيلا.",
       "cat": "milk",
       "badge": ""
@@ -2402,7 +2402,7 @@ export const MENU_SEED = {
       "id": 3103,
       "name": "حليب بستاشيو",
       "price": 3500,
-      "img": "img/حليب.jpg",
+      "img": "img/حليب.webp",
       "desc": "حليب بستاشيو.",
       "cat": "milk",
       "badge": ""
@@ -2411,7 +2411,7 @@ export const MENU_SEED = {
       "id": 3104,
       "name": "حليب بالمكسرات والعسل",
       "price": 3000,
-      "img": "img/حليب.jpg",
+      "img": "img/حليب.webp",
       "desc": "حليب بالمكسرات والعسل.",
       "cat": "milk",
       "badge": ""
@@ -2420,7 +2420,7 @@ export const MENU_SEED = {
       "id": 3201,
       "name": "وافل أوريو",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل أوريو مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2429,7 +2429,7 @@ export const MENU_SEED = {
       "id": 3202,
       "name": "وافل باونتي",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل باونتي مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2438,7 +2438,7 @@ export const MENU_SEED = {
       "id": 3203,
       "name": "وافل بستاشيو",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل بستاشيو مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2447,7 +2447,7 @@ export const MENU_SEED = {
       "id": 3204,
       "name": "وافل تويكس",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل تويكس مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2456,7 +2456,7 @@ export const MENU_SEED = {
       "id": 3205,
       "name": "وافل فراولة",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل فراولة مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2465,7 +2465,7 @@ export const MENU_SEED = {
       "id": 3206,
       "name": "وافل فواكه",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل فواكه مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2474,7 +2474,7 @@ export const MENU_SEED = {
       "id": 3207,
       "name": "وافل لوتس",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل لوتس مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2483,7 +2483,7 @@ export const MENU_SEED = {
       "id": 3208,
       "name": "وافل مكسرات",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل مكسرات مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2492,7 +2492,7 @@ export const MENU_SEED = {
       "id": 3209,
       "name": "وافل ميكس",
       "price": 5500,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل ميكس مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2501,7 +2501,7 @@ export const MENU_SEED = {
       "id": 3210,
       "name": "وافل نوتيلا",
       "price": 5000,
-      "img": "img/وافل.jpg",
+      "img": "img/وافل.webp",
       "desc": "وافل نوتيلا مقرمش.",
       "cat": "waffle",
       "badge": ""
@@ -2510,7 +2510,7 @@ export const MENU_SEED = {
       "id": 1601,
       "name": "كريب أوريو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بأوريو.",
       "cat": "crepe",
       "badge": ""
@@ -2519,7 +2519,7 @@ export const MENU_SEED = {
       "id": 1602,
       "name": "كريب باونتي",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بباونتي.",
       "cat": "crepe",
       "badge": ""
@@ -2528,7 +2528,7 @@ export const MENU_SEED = {
       "id": 1603,
       "name": "كريب بستاشيو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو ببستاشيو.",
       "cat": "crepe",
       "badge": ""
@@ -2537,7 +2537,7 @@ export const MENU_SEED = {
       "id": 1604,
       "name": "كريب بنانا رول",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو ببنانا رول.",
       "cat": "crepe",
       "badge": ""
@@ -2546,7 +2546,7 @@ export const MENU_SEED = {
       "id": 1605,
       "name": "كريب تويكس",
       "price": 6000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بتويكس.",
       "cat": "crepe",
       "badge": ""
@@ -2555,7 +2555,7 @@ export const MENU_SEED = {
       "id": 1606,
       "name": "كريب رافايلو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو برافايلو.",
       "cat": "crepe",
       "badge": ""
@@ -2564,7 +2564,7 @@ export const MENU_SEED = {
       "id": 1607,
       "name": "كريب فراولة",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بفراولة.",
       "cat": "crepe",
       "badge": ""
@@ -2573,7 +2573,7 @@ export const MENU_SEED = {
       "id": 1608,
       "name": "كريب فواكه",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بفواكه.",
       "cat": "crepe",
       "badge": ""
@@ -2582,7 +2582,7 @@ export const MENU_SEED = {
       "id": 1609,
       "name": "كريب كالكسي",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بكالكسي.",
       "cat": "crepe",
       "badge": ""
@@ -2591,7 +2591,7 @@ export const MENU_SEED = {
       "id": 1610,
       "name": "كريب كندر",
       "price": 6000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بكندر.",
       "cat": "crepe",
       "badge": ""
@@ -2600,7 +2600,7 @@ export const MENU_SEED = {
       "id": 1611,
       "name": "كريب لوتس بالكراميل",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بلوتس بالكراميل.",
       "cat": "crepe",
       "badge": ""
@@ -2609,7 +2609,7 @@ export const MENU_SEED = {
       "id": 1612,
       "name": "كريب مارشميلو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بمارشميلو.",
       "cat": "crepe",
       "badge": ""
@@ -2618,7 +2618,7 @@ export const MENU_SEED = {
       "id": 1613,
       "name": "كريب مكسرات",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بمكسرات.",
       "cat": "crepe",
       "badge": ""
@@ -2627,7 +2627,7 @@ export const MENU_SEED = {
       "id": 1614,
       "name": "كريب ميكس",
       "price": 6000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بميكس.",
       "cat": "crepe",
       "badge": ""
@@ -2636,7 +2636,7 @@ export const MENU_SEED = {
       "id": 1615,
       "name": "كريب ميكس أوريو ولوتس",
       "price": 6000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بأوريو ولوتس.",
       "cat": "crepe",
       "badge": ""
@@ -2645,7 +2645,7 @@ export const MENU_SEED = {
       "id": 1616,
       "name": "كريب نوتيلا",
       "price": 5000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بنوتيلا.",
       "cat": "crepe",
       "badge": ""
@@ -2654,7 +2654,7 @@ export const MENU_SEED = {
       "id": 1617,
       "name": "سوشي كريب",
       "price": 6000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "سوشي كريب فرنسي رقيق.",
       "cat": "crepe",
       "badge": "popular"
@@ -2663,7 +2663,7 @@ export const MENU_SEED = {
       "id": 1618,
       "name": "كريب بالآيسكريم",
       "price": 7000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كريب فرنسي رقيق محشو بالآيسكريم.",
       "cat": "crepe",
       "badge": ""
@@ -2672,7 +2672,7 @@ export const MENU_SEED = {
       "id": 1619,
       "name": "بيتزا كريب",
       "price": 8000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "بيتزا كريب فرنسي رقيق.",
       "cat": "crepe",
       "badge": "popular"
@@ -2681,7 +2681,7 @@ export const MENU_SEED = {
       "id": 1701,
       "name": "آيسكريم فراولة",
       "price": 4000,
-      "img": "img/موطة.jpg",
+      "img": "img/موطة.webp",
       "desc": "آيسكريم فراولة.",
       "cat": "ice_cream",
       "badge": ""
@@ -2690,7 +2690,7 @@ export const MENU_SEED = {
       "id": 1702,
       "name": "آيسكريم فواكه",
       "price": 4000,
-      "img": "img/موطة.jpg",
+      "img": "img/موطة.webp",
       "desc": "آيسكريم فواكه.",
       "cat": "ice_cream",
       "badge": ""
@@ -2699,7 +2699,7 @@ export const MENU_SEED = {
       "id": 1703,
       "name": "آيسكريم مشكل",
       "price": 4000,
-      "img": "img/موطة.jpg",
+      "img": "img/موطة.webp",
       "desc": "آيسكريم مشكل.",
       "cat": "ice_cream",
       "badge": ""
@@ -2708,7 +2708,7 @@ export const MENU_SEED = {
       "id": 1704,
       "name": "آيسكريم مكسرات",
       "price": 4000,
-      "img": "img/موطة.jpg",
+      "img": "img/موطة.webp",
       "desc": "آيسكريم مكسرات.",
       "cat": "ice_cream",
       "badge": ""
@@ -2717,7 +2717,7 @@ export const MENU_SEED = {
       "id": 1705,
       "name": "آيسكريم نوتيلا",
       "price": 4000,
-      "img": "img/موطة.jpg",
+      "img": "img/موطة.webp",
       "desc": "آيسكريم نوتيلا.",
       "cat": "ice_cream",
       "badge": ""
@@ -2726,7 +2726,7 @@ export const MENU_SEED = {
       "id": 1706,
       "name": "بان كيك أوريو",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "بان كيك أوريو.",
       "cat": "pancake",
       "badge": ""
@@ -2735,7 +2735,7 @@ export const MENU_SEED = {
       "id": 1707,
       "name": "بان كيك بالمكسرات",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "بان كيك بالمكسرات.",
       "cat": "pancake",
       "badge": ""
@@ -2744,7 +2744,7 @@ export const MENU_SEED = {
       "id": 1708,
       "name": "بان كيك فراولة",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "بان كيك فراولة.",
       "cat": "pancake",
       "badge": ""
@@ -2753,7 +2753,7 @@ export const MENU_SEED = {
       "id": 1709,
       "name": "بان كيك نوتيلا",
       "price": 5500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "بان كيك نوتيلا.",
       "cat": "pancake",
       "badge": ""
@@ -2762,7 +2762,7 @@ export const MENU_SEED = {
       "id": 1710,
       "name": "جيز كيك",
       "price": 3500,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "جيز كيك.",
       "cat": "pancake",
       "badge": ""
@@ -2771,7 +2771,7 @@ export const MENU_SEED = {
       "id": 1711,
       "name": "كرواسون",
       "price": 3000,
-      "img": "img/بانكيك.jpg",
+      "img": "img/بانكيك.webp",
       "desc": "كرواسون.",
       "cat": "pancake",
       "badge": ""
@@ -2780,7 +2780,7 @@ export const MENU_SEED = {
       "id": 3301,
       "name": "طبق فواكه",
       "price": 5000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "طبق فواكه طازجة.",
       "cat": "fruits",
       "badge": ""
@@ -2789,7 +2789,7 @@ export const MENU_SEED = {
       "id": 3302,
       "name": "طبق بطيخ",
       "price": 3000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "طبق بطيخ طازج.",
       "cat": "fruits",
       "badge": ""
@@ -2798,7 +2798,7 @@ export const MENU_SEED = {
       "id": 3303,
       "name": "طبق رقي",
       "price": 3000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "طبق رقي طازج.",
       "cat": "fruits",
       "badge": ""
@@ -2807,7 +2807,7 @@ export const MENU_SEED = {
       "id": 3304,
       "name": "طبق فواكه بالآيسكريم",
       "price": 6000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "طبق فواكه بالآيسكريم.",
       "cat": "fruits",
       "badge": ""
@@ -2816,7 +2816,7 @@ export const MENU_SEED = {
       "id": 3305,
       "name": "سلطة فواكه",
       "price": 5000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "سلطة فواكه طازجة.",
       "cat": "fruits",
       "badge": ""
@@ -2825,7 +2825,7 @@ export const MENU_SEED = {
       "id": 3306,
       "name": "سلطة فواكه بالمكسرات وعسل",
       "price": 6000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "سلطة فواكه بالمكسرات والعسل.",
       "cat": "fruits",
       "badge": ""
@@ -2834,7 +2834,7 @@ export const MENU_SEED = {
       "id": 3307,
       "name": "سلطة فواكه بالنوتيلا",
       "price": 6000,
-      "img": "img/فواكه.jpg",
+      "img": "img/فواكه.webp",
       "desc": "سلطة فواكه بالنوتيلا.",
       "cat": "fruits",
       "badge": ""
@@ -2843,7 +2843,7 @@ export const MENU_SEED = {
       "id": 2001,
       "name": "أراكيلة معجنات",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة معجنات.",
       "cat": "shisha",
       "badge": ""
@@ -2852,7 +2852,7 @@ export const MENU_SEED = {
       "id": 2002,
       "name": "أركيلة انكليزي",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة انكليزي.",
       "cat": "shisha",
       "badge": ""
@@ -2861,7 +2861,7 @@ export const MENU_SEED = {
       "id": 2003,
       "name": "أركيلة باونتي",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة باونتي.",
       "cat": "shisha",
       "badge": ""
@@ -2870,7 +2870,7 @@ export const MENU_SEED = {
       "id": 2004,
       "name": "أركيلة برتقال",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة برتقال.",
       "cat": "shisha",
       "badge": ""
@@ -2879,7 +2879,7 @@ export const MENU_SEED = {
       "id": 2005,
       "name": "أركيلة بلوبيري",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة بلوبيري.",
       "cat": "shisha",
       "badge": ""
@@ -2888,7 +2888,7 @@ export const MENU_SEED = {
       "id": 2006,
       "name": "أركيلة تايكر",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة تايكر.",
       "cat": "shisha",
       "badge": ""
@@ -2897,7 +2897,7 @@ export const MENU_SEED = {
       "id": 2007,
       "name": "أركيلة تعلولة",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة تعلولة.",
       "cat": "shisha",
       "badge": "popular"
@@ -2906,7 +2906,7 @@ export const MENU_SEED = {
       "id": 2008,
       "name": "أركيلة تفاحتين",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة تفاحتين.",
       "cat": "shisha",
       "badge": ""
@@ -2915,7 +2915,7 @@ export const MENU_SEED = {
       "id": 2009,
       "name": "أركيلة حار بارد",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة حار بارد.",
       "cat": "shisha",
       "badge": ""
@@ -2924,7 +2924,7 @@ export const MENU_SEED = {
       "id": 2010,
       "name": "أركيلة حمضيات",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة حمضيات.",
       "cat": "shisha",
       "badge": ""
@@ -2933,7 +2933,7 @@ export const MENU_SEED = {
       "id": 2011,
       "name": "أركيلة شمام",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة شمام.",
       "cat": "shisha",
       "badge": ""
@@ -2942,7 +2942,7 @@ export const MENU_SEED = {
       "id": 2012,
       "name": "أركيلة علك",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة علك.",
       "cat": "shisha",
       "badge": ""
@@ -2951,7 +2951,7 @@ export const MENU_SEED = {
       "id": 2013,
       "name": "أركيلة علك ونعناع",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة علك ونعناع.",
       "cat": "shisha",
       "badge": ""
@@ -2960,7 +2960,7 @@ export const MENU_SEED = {
       "id": 2014,
       "name": "أركيلة عنب",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة عنب.",
       "cat": "shisha",
       "badge": ""
@@ -2969,7 +2969,7 @@ export const MENU_SEED = {
       "id": 2015,
       "name": "أركيلة فواكه استوائية",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة فواكه استوائية.",
       "cat": "shisha",
       "badge": ""
@@ -2978,7 +2978,7 @@ export const MENU_SEED = {
       "id": 2016,
       "name": "أركيلة كاسترو",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة كاسترو.",
       "cat": "shisha",
       "badge": ""
@@ -2987,7 +2987,7 @@ export const MENU_SEED = {
       "id": 2017,
       "name": "أركيلة ليمون",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة ليمون.",
       "cat": "shisha",
       "badge": ""
@@ -2996,7 +2996,7 @@ export const MENU_SEED = {
       "id": 2018,
       "name": "أركيلة ليمون ونعناع",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة ليمون ونعناع.",
       "cat": "shisha",
       "badge": ""
@@ -3005,7 +3005,7 @@ export const MENU_SEED = {
       "id": 2019,
       "name": "أركيلة نعناع",
       "price": 7500,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "جلسة أركيلة بنكهة نعناع.",
       "cat": "shisha",
       "badge": ""
@@ -3014,7 +3014,7 @@ export const MENU_SEED = {
       "id": 2020,
       "name": "أركيلة طبيعي أناناس",
       "price": 15000,
-      "img": "img/نركيلةحانانس.jpeg",
+      "img": "img/نركيلةحانانس.webp",
       "desc": "جلسة أركيلة طبيعي أناناس.",
       "cat": "shisha",
       "badge": ""
@@ -3023,7 +3023,7 @@ export const MENU_SEED = {
       "id": 2021,
       "name": "فنجان",
       "price": 5000,
-      "img": "img/نركيله.jpeg",
+      "img": "img/نركيله.webp",
       "desc": "فنجان.",
       "cat": "shisha",
       "badge": ""
