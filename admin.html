@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>لوحة إدارة تعلولة — النظام المتكامل</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.firebaseio.com https://*.firebase.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com wss://*.firebaseio.com; form-action 'self'; base-uri 'self';"> 
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.firebaseio.com https://*.firebase.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com wss://*.firebaseio.com ws://127.0.0.1:3001; form-action 'self'; base-uri 'self';"> 
   <meta name="robots" content="noindex, nofollow">
   <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Readex+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -595,14 +595,7 @@
 
   <script type="module">
     import { database } from './firebase-config.js';
-    // Dynamic import with cache busting used in seedMenu() to always get fresh data
-    let _MENU_SEED = null;
-    async function getMenuSeed() {
-      if (_MENU_SEED) return _MENU_SEED;
-      const mod = await import(`./menu-seed.js?v=${Date.now()}`);
-      _MENU_SEED = mod.MENU_SEED;
-      return _MENU_SEED;
-    }
+    import { MENU_SEED } from './menu-seed.js';
     import {
       ref, child, onValue, set, update, remove, get
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
@@ -836,7 +829,7 @@
         const catName = state.categories.find(c => c.id === item.cat)?.name || item.cat;
         return `
           <tr>
-            <td><img class="td-img" src="${item.img || 'img/logo.jpeg'}" alt="" loading="lazy" onerror="this.src='img/logo.jpeg'"></td>
+            <td><img class="td-img" src="${item.img || 'img/logo.webp'}" alt="" loading="lazy" onerror="this.src='img/logo.webp'"></td>
             <td><div class="td-name">${item.name}</div></td>
             <td class="td-price">${Number(item.price).toLocaleString()}</td>
             <td><span class="td-cat">${catName}</span></td>
@@ -1033,15 +1026,14 @@
       btn.disabled = true;
       btn.textContent = '⏳ جارٍ التحميل...';
       try {
-        const fresh = await getMenuSeed();
-        if (!fresh || !fresh.categories || !fresh.items) throw new Error('بيانات القائمة الافتراضية غير صالحة');
+        if (!MENU_SEED || !MENU_SEED.categories || !MENU_SEED.items) throw new Error('بيانات القائمة الافتراضية غير صالحة');
         const catsObj = {};
-        fresh.categories.forEach((cat, idx) => { catsObj[cat.id] = { id: cat.id, name: cat.name, order: cat.order ?? idx }; });
+        MENU_SEED.categories.forEach((cat, idx) => { catsObj[cat.id] = { id: cat.id, name: cat.name, order: cat.order ?? idx }; });
         const itemsObj = {};
-        fresh.items.forEach((item, idx) => { itemsObj[item.id] = { ...item, order: item.order ?? idx }; });
+        MENU_SEED.items.forEach((item, idx) => { itemsObj[item.id] = { ...item, order: item.order ?? idx }; });
         btn.textContent = '⏳ جارٍ الرفع...';
         await set(rootRef, { categories: catsObj, items: itemsObj, settings: { lastReset: Date.now(), lastResetBy: 'admin' }, orders: {} });
-        showToast(`✅ تم رفع ${fresh.categories.length} تصنيف و${fresh.items.length} طبق`, 'success');
+        showToast(`✅ تم رفع ${MENU_SEED.categories.length} تصنيف و${MENU_SEED.items.length} طبق`, 'success');
         $('lastUpdate').textContent = new Date().toLocaleString('ar-IQ');
       } catch (err) { showToast('خطأ: ' + err.message, 'error'); }
       finally { btn.disabled = false; btn.textContent = '🚀 رفع القائمة الافتراضية'; }
