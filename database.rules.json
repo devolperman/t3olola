@@ -1,0 +1,38 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "taaloola_menu": {
+      "//": "القراءة عامة (القائمة تُعرض للزوار). الكتابة محمية بالتحقق من البنية والأحجام لمنع إغراق القاعدة أو حقن بيانات ضارة.",
+      ".read": true,
+
+      "categories": {
+        ".write": true,
+        "$catId": {
+          ".validate": "newData.hasChildren(['id','name']) || !newData.exists()",
+          "id":    { ".validate": "newData.isString() && newData.val().length <= 60" },
+          "name":  { ".validate": "newData.isString() && newData.val().length <= 60" },
+          "order": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 99999" },
+          "$other": { ".validate": false }
+        }
+      },
+
+      "items": {
+        ".write": true,
+        "$itemId": {
+          ".validate": "newData.hasChildren(['id','name','cat']) || !newData.exists()",
+          "id":    { ".validate": "newData.isString() && newData.val().length <= 60" },
+          "name":  { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 120" },
+          "cat":   { ".validate": "newData.isString() && newData.val().length <= 60" },
+          "desc":  { ".validate": "newData.isString() && newData.val().length <= 600" },
+          "badge": { ".validate": "newData.isString() && (newData.val() == '' || newData.val() == 'popular' || newData.val() == 'new')" },
+          "img":   { ".validate": "newData.isString() && newData.val().length <= 350000" },
+          "price": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 9999999" },
+          "order": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 99999" },
+          "$other": { ".validate": false }
+        }
+      }
+    }
+  }
+}

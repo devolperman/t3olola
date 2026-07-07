@@ -2853,13 +2853,24 @@
       setTimeout(hideLoading, 300);
     }
 
+    // Escape untrusted DB values before injecting into innerHTML (XSS defense).
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, m =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+    }
+    // Escape a value used inside a single-quoted JS string in an inline handler.
+    function escJs(s) {
+      return String(s == null ? '' : s).replace(/[\\'"<>&]/g, m =>
+        ({ '\\': '\\\\', "'": '\\x27', '"': '\\x22', '<': '\\x3C', '>': '\\x3E', '&': '\\x26' }[m]));
+    }
+
     function renderLiveUI() {
       const tabContainer = document.querySelector('.tabs-s');
       const currentOn = tabContainer.querySelector('.tb.on')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1] || 'home';
 
       let tabHtml = `<button class="tb ${currentOn === 'home' ? 'on' : ''}" onclick="goTab('home',this)">الرئيسية</button>`;
       CATS.forEach(c => {
-        tabHtml += `<button class="tb ${currentOn === c.id ? 'on' : ''}" onclick="goTab('${c.id}',this)">${c.name}</button>`;
+        tabHtml += `<button class="tb ${currentOn === c.id ? 'on' : ''}" onclick="goTab('${escJs(c.id)}',this)">${esc(c.name)}</button>`;
       });
       tabContainer.innerHTML = tabHtml;
 
@@ -2869,9 +2880,9 @@
       let vpChildHtml = homeSec.outerHTML;
       CATS.forEach(c => {
         vpChildHtml += `
-          <section id="${c.id}" class="sec">
-            <div class="sec-h">${c.name}</div>
-            <div class="grid" id="${c.id}G"></div>
+          <section id="${esc(c.id)}" class="sec">
+            <div class="sec-h">${esc(c.name)}</div>
+            <div class="grid" id="${esc(c.id)}G"></div>
           </section>
         `;
       });
@@ -2906,17 +2917,17 @@
     function rCard(item, delay = 0) {
       const imgPath = item.img ? item.img : '';
       const imgHtml = imgPath
-        ? `<img src="${imgPath}" alt="${item.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=ic-ph><i class=ph-light-ph-fork-knife style=font-size:36px;color:var\\(--tan\\)></i></div>'">`
+        ? `<img src="${esc(imgPath)}" alt="${esc(item.name)}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=ic-ph><i class=ph-light-ph-fork-knife style=font-size:36px;color:var\\(--tan\\)></i></div>'">`
         : phTag();
 
-      return `<div class="ic" style="animation-delay:${delay}s" onclick="openModal('${item.id}')">
+      return `<div class="ic" style="animation-delay:${delay}s" onclick="openModal('${escJs(item.id)}')">
         <div class="ic-img">${bdg(item.badge)}${imgHtml}</div>
         <div class="ic-body">
-          <div class="ic-name">${item.name}</div>
-          <div class="ic-desc">${item.desc || ''}</div>
+          <div class="ic-name">${esc(item.name)}</div>
+          <div class="ic-desc">${esc(item.desc || '')}</div>
           <div class="ic-foot">
             <span class="ic-price">${item.price.toLocaleString()} د.ع</span>
-            <button class="ic-add" onclick="event.stopPropagation();qadd('${item.id}',this)">
+            <button class="ic-add" onclick="event.stopPropagation();qadd('${escJs(item.id)}',this)">
               <i class="ph-bold ph-plus"></i>
             </button>
           </div>
@@ -2948,17 +2959,17 @@
         const it = getItem(f.id);
         const imgPath = it && it.img ? it.img : '';
         const imgHtml = imgPath
-          ? `<img src="${imgPath}" class="fc-img" alt="${f.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=fc-ph><i class=ph-light-ph-fork-knife style=font-size:40px;color:rgba\\(255,255,255,.45\\)></i></div>'">`
+          ? `<img src="${esc(imgPath)}" class="fc-img" alt="${esc(f.name)}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=fc-ph><i class=ph-light-ph-fork-knife style=font-size:40px;color:rgba\\(255,255,255,.45\\)></i></div>'">`
           : `<div class="fc-ph"><i class="ph-light ph-fork-knife" style="font-size:40px;color:rgba(255,255,255,.45)"></i></div>`;
 
-        return `<div class="fc" style="background:${f.col}" onclick="openModal('${f.id}')">
+        return `<div class="fc" style="background:${esc(f.col)}" onclick="openModal('${escJs(f.id)}')">
           ${imgHtml}
           <div class="fc-body">
-            <div class="fc-name">${f.name}</div>
-            <div class="fc-tag">${f.tag}</div>
+            <div class="fc-name">${esc(f.name)}</div>
+            <div class="fc-tag">${esc(f.tag)}</div>
             <div class="fc-foot">
               <span class="fc-price">${f.price.toLocaleString()} د.ع</span>
-              <button class="fc-add" onclick="event.stopPropagation();qadd('${f.id}',this)">
+              <button class="fc-add" onclick="event.stopPropagation();qadd('${escJs(f.id)}',this)">
                 <i class="ph-bold ph-plus"></i>
               </button>
             </div>
@@ -3053,7 +3064,7 @@
 
       const imgPath = item.img ? item.img : '';
       const imgHtml = imgPath
-        ? `<img src="${imgPath}" class="m-img" alt="${item.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=m-ph><i class=ph-light-ph-fork-knife style=font-size:72px;color:var\\(--tan\\)></i></div>'">`
+        ? `<img src="${esc(imgPath)}" class="m-img" alt="${esc(item.name)}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div class=m-ph><i class=ph-light-ph-fork-knife style=font-size:72px;color:var\\(--tan\\)></i></div>'">`
         : `<div class="m-ph"><i class="ph-light ph-fork-knife" style="font-size:72px;color:var(--tan)"></i></div>`;
 
       document.getElementById('mImgW').innerHTML = imgHtml;
@@ -3194,14 +3205,14 @@
 
       const cardsHtml = topSuggests.map((s, idx) => {
         const imgHtml = s.img
-          ? `<img src="${s.img}" class="sm-card-img" alt="${s.name}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div style=width:100%;height:110px;display:flex;align-items:center;justify-content:center;background:var\\(--bg2\\)><i class=ph-light-ph-fork-knife style=font-size:28px;color:var\\(--tan\\)></i></div>'">`
+          ? `<img src="${esc(s.img)}" class="sm-card-img" alt="${esc(s.name)}" loading="lazy" onload="this.setAttribute('data-loaded','')" onerror="this.outerHTML='<div style=width:100%;height:110px;display:flex;align-items:center;justify-content:center;background:var\\(--bg2\\)><i class=ph-light-ph-fork-knife style=font-size:28px;color:var\\(--tan\\)></i></div>'">`
           : `<div class="sm-card-ph"><i class="ph-light ph-fork-knife"></i></div>`;
         return `
           <div class="sm-card" style="animation-delay:${idx * 0.08}s">
             ${imgHtml}
             <div class="sm-card-body">
               <div>
-                <div class="sm-card-name">${s.name}</div>
+                <div class="sm-card-name">${esc(s.name)}</div>
                 <div class="sm-card-price">${s.price.toLocaleString()} د.ع</div>
               </div>
               <button class="sm-card-add" onclick="addSmartItem(${s.id})">
@@ -3270,9 +3281,9 @@
       document.getElementById('dTotal').textContent = totalP().toLocaleString() + ' د.ع';
       body.innerHTML = cart.map((c, i) => {
         return `<div class="citem" style="animation-delay:${i * 0.05}s">
-          <div class="citem-img"><img src="${c.img}" alt="${c.name}" onerror="this.src='img/logo.webp'"/></div>
+          <div class="citem-img"><img src="${esc(c.img)}" alt="${esc(c.name)}" onerror="this.src='img/logo.webp'"/></div>
           <div class="citem-info">
-            <div class="citem-name">${c.name}</div>
+            <div class="citem-name">${esc(c.name)}</div>
             <div class="citem-sub">${(c.price * c.qty).toLocaleString()} د.ع</div>
             <div class="citem-unit">${c.price.toLocaleString()} د.ع × ${c.qty}</div>
           </div>

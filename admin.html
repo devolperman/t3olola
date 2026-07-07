@@ -176,6 +176,30 @@
       width: 40px; height: 40px; border-radius: 8px; object-fit: cover;
       background: var(--bg2); border: 1px solid var(--border);
     }
+    .uploader {
+      border: 2px dashed var(--border); border-radius: 14px; padding: 18px;
+      background: rgba(255,255,255,0.02); cursor: pointer; transition: .2s;
+      text-align: center;
+    }
+    .uploader.drag { border-color: var(--gold); background: rgba(196,154,64,0.08); }
+    .up-empty { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .up-ico { font-size: 34px; }
+    .up-txt { font-weight: 700; font-size: 14px; color: var(--gold-lt); }
+    .up-hint { font-size: 11px; color: var(--muted); }
+    .up-preview { display: flex; align-items: center; gap: 14px; }
+    .up-preview img {
+      width: 96px; height: 96px; object-fit: cover; border-radius: 12px;
+      border: 1px solid var(--border); background: var(--bg2);
+    }
+    .up-meta { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .up-meta #upInfo { font-size: 12px; color: var(--muted); }
+    .btn-sm { padding: 6px 12px !important; font-size: 12px !important; }
+    .up-busy { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--gold-lt); font-weight: 700; }
+    .up-spinner {
+      width: 16px; height: 16px; border: 2px solid var(--border);
+      border-top-color: var(--gold); border-radius: 50%; animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .td-name { font-weight: 700; font-size: 13px; }
     .td-desc { font-size: 11px; color: var(--muted); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .td-price { font-weight: 700; color: var(--gold-lt); font-size: 13px; direction: ltr; }
@@ -545,15 +569,31 @@
           <label>الوصف</label>
           <textarea id="itemDesc" placeholder="وصف مختصر للطبق..."></textarea>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>رابط الصورة</label>
-            <input type="text" id="itemImg" placeholder="img/taaloola-drink.jpeg">
+        <div class="form-group">
+          <label>صورة الطبق</label>
+          <input type="hidden" id="itemImg">
+          <input type="file" id="itemImgFile" accept="image/*" hidden>
+          <div class="uploader" id="itemImgDrop">
+            <div class="up-empty" id="upEmpty">
+              <span class="up-ico">📷</span>
+              <span class="up-txt">اضغط لاختيار صورة أو اسحبها هنا</span>
+              <span class="up-hint">تُضغط تلقائياً (WebP) — بحد أقصى 15MB</span>
+            </div>
+            <div class="up-preview" id="upPreview" style="display:none">
+              <img id="upThumb" alt="معاينة">
+              <div class="up-meta">
+                <span id="upInfo"></span>
+                <button type="button" class="btn btn-danger btn-sm" id="upRemove">🗑️ إزالة الصورة</button>
+              </div>
+            </div>
+            <div class="up-busy" id="upBusy" style="display:none">
+              <span class="up-spinner"></span> جارٍ ضغط الصورة…
+            </div>
           </div>
-          <div class="form-group">
-            <label>ترتيب الظهور</label>
-            <input type="number" id="itemOrder" min="0" value="0">
-          </div>
+        </div>
+        <div class="form-group">
+          <label>ترتيب الظهور</label>
+          <input type="number" id="itemOrder" min="0" value="0">
         </div>
         <div class="form-actions">
           <button type="submit" class="btn btn-gold" id="saveItemBtn">💾 حفظ الطبق</button>
@@ -626,6 +666,9 @@
 
     // =========== DOM REFS ===========
     const $ = id => document.getElementById(id);
+    // Escape untrusted DB values before injecting into innerHTML (XSS defense).
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, m =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
     const app = $('app');
     const loginOverlay = $('loginOverlay');
     const toast = $('toast');
@@ -825,16 +868,17 @@
       empty.style.display = 'none';
 
       body.innerHTML = pageItems.map(item => {
-        const badgeHtml = item.badge ? `<span class="td-badge ${item.badge}">${item.badge === 'popular' ? '⭐ شائع' : '🆕 جديد'}</span>` : '<span style="color:var(--muted2);font-size:11px">—</span>';
+        const badge = item.badge === 'popular' ? '⭐ شائع' : item.badge === 'new' ? '🆕 جديد' : '';
+        const badgeHtml = badge ? `<span class="td-badge ${esc(item.badge)}">${badge}</span>` : '<span style="color:var(--muted2);font-size:11px">—</span>';
         const catName = state.categories.find(c => c.id === item.cat)?.name || item.cat;
         return `
           <tr>
-            <td><img class="td-img" src="${item.img || 'img/logo.webp'}" alt="" loading="lazy" onerror="this.src='img/logo.webp'"></td>
-            <td><div class="td-name">${item.name}</div></td>
+            <td><img class="td-img" src="${esc(item.img || 'img/logo.webp')}" alt="" loading="lazy" onerror="this.src='img/logo.webp'"></td>
+            <td><div class="td-name">${esc(item.name)}</div></td>
             <td class="td-price">${Number(item.price).toLocaleString()}</td>
-            <td><span class="td-cat">${catName}</span></td>
+            <td><span class="td-cat">${esc(catName)}</span></td>
             <td>${badgeHtml}</td>
-            <td><div class="td-desc">${item.desc || '—'}</div></td>
+            <td><div class="td-desc">${esc(item.desc || '—')}</div></td>
             <td>
               <div class="td-actions">
                 <button class="edit-btn" data-item-id="${item.id}" title="تعديل">✏️</button>
@@ -899,8 +943,15 @@
           $('itemDesc').value = item.desc || '';
           $('itemImg').value = item.img || '';
           $('itemOrder').value = item.order ?? 0;
+          if (item.img) {
+            const isData = item.img.startsWith('data:');
+            setUploaderPreview(item.img, isData ? `صورة مضغوطة • ${fmtSize(bytesFromDataURL(item.img))}` : 'صورة حالية');
+          } else {
+            setUploaderPreview('', '');
+          }
         }
       } else {
+        setUploaderPreview('', '');
         $('itemModalTitle').innerHTML = '🍽️ إضافة طبق جديد<button id="closeItemModal">✕</button>';
         $('saveItemBtn').textContent = '💾 حفظ الطبق';
         $('itemId').value = '';
@@ -915,18 +966,135 @@
 
     $('addItemBtn').addEventListener('click', () => openItemModal());
 
+    // =========== IMAGE UPLOAD + COMPRESSION ===========
+    const MAX_RAW_BYTES = 15 * 1024 * 1024;   // رفض أي ملف أكبر من 15MB
+    const MAX_DIM = 900;                       // أقصى بُعد للصورة بعد الضغط (px)
+    const TARGET_BYTES = 110 * 1024;           // الحجم المستهدف للـ WebP الناتجة (~110KB)
+    const ALLOWED_TYPES = ['image/jpeg','image/png','image/webp','image/gif','image/bmp'];
+
+    function bytesFromDataURL(dataURL) {
+      const i = dataURL.indexOf(',');
+      return Math.floor((dataURL.length - i - 1) * 3 / 4);
+    }
+    function fmtSize(bytes) {
+      return bytes < 1024 ? bytes + ' B'
+        : bytes < 1048576 ? (bytes / 1024).toFixed(0) + ' KB'
+        : (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    // يحمّل الملف داخل <img> بأمان عبر ObjectURL (بدون تنفيذ أي محتوى)
+    function loadImage(file) {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('تعذّر قراءة الصورة')); };
+        img.src = url;
+      });
+    }
+
+    // يعيد الرسم على canvas بأبعاد مصغّرة ويصدّر WebP مع خفض الجودة حتى بلوغ الحجم المستهدف
+    async function compressImage(file) {
+      const img = await loadImage(file);
+      let { width: w, height: h } = img;
+      if (w > MAX_DIM || h > MAX_DIM) {
+        const scale = MAX_DIM / Math.max(w, h);
+        w = Math.round(w * scale); h = Math.round(h * scale);
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, w, h);
+
+      const type = canvas.toDataURL('image/webp', 0.9).startsWith('data:image/webp') ? 'image/webp' : 'image/jpeg';
+      let q = 0.85, out = canvas.toDataURL(type, q);
+      while (bytesFromDataURL(out) > TARGET_BYTES && q > 0.4) {
+        q -= 0.1;
+        out = canvas.toDataURL(type, q);
+      }
+      return { dataURL: out, w, h, type };
+    }
+
+    function setUploaderPreview(dataURL, info) {
+      if (dataURL) {
+        $('upEmpty').style.display = 'none';
+        $('upBusy').style.display = 'none';
+        $('upPreview').style.display = 'flex';
+        $('upThumb').src = dataURL;
+        $('upInfo').textContent = info || '';
+      } else {
+        $('upPreview').style.display = 'none';
+        $('upBusy').style.display = 'none';
+        $('upEmpty').style.display = 'flex';
+        $('upThumb').removeAttribute('src');
+        $('upInfo').textContent = '';
+      }
+    }
+
+    async function handleImageFile(file) {
+      if (!file) return;
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        showToast('نوع الملف غير مدعوم — اختر صورة (JPG/PNG/WebP)', 'error'); return;
+      }
+      if (file.size > MAX_RAW_BYTES) {
+        showToast('الصورة كبيرة جداً (الحد 15MB)', 'error'); return;
+      }
+      $('upEmpty').style.display = 'none';
+      $('upPreview').style.display = 'none';
+      $('upBusy').style.display = 'flex';
+      try {
+        const { dataURL, w, h } = await compressImage(file);
+        $('itemImg').value = dataURL;
+        setUploaderPreview(dataURL, `${w}×${h} • ${fmtSize(bytesFromDataURL(dataURL))} (WebP)`);
+      } catch (err) {
+        setUploaderPreview($('itemImg').value || '', '');
+        showToast('خطأ في معالجة الصورة: ' + err.message, 'error');
+      }
+    }
+
+    $('itemImgDrop').addEventListener('click', e => {
+      if (e.target.closest('#upRemove')) return;
+      $('itemImgFile').click();
+    });
+    $('itemImgFile').addEventListener('change', e => {
+      const file = e.target.files[0];
+      handleImageFile(file);
+      e.target.value = '';
+    });
+    ['dragenter','dragover'].forEach(ev =>
+      $('itemImgDrop').addEventListener(ev, e => { e.preventDefault(); $('itemImgDrop').classList.add('drag'); }));
+    ['dragleave','drop'].forEach(ev =>
+      $('itemImgDrop').addEventListener(ev, e => { e.preventDefault(); $('itemImgDrop').classList.remove('drag'); }));
+    $('itemImgDrop').addEventListener('drop', e => {
+      const file = e.dataTransfer.files[0];
+      handleImageFile(file);
+    });
+    $('upRemove').addEventListener('click', e => {
+      e.stopPropagation();
+      $('itemImg').value = '';
+      setUploaderPreview('', '');
+    });
+
     $('itemForm').addEventListener('submit', async e => {
       e.preventDefault();
-      const id = $('itemId').value.trim() || Date.now().toString();
+      const rawId = $('itemId').value.trim() || Date.now().toString();
+      // معرّف آمن للاستخدام كمفتاح في قاعدة البيانات (بدون رموز Firebase الممنوعة أو حقن)
+      const id = rawId.replace(/[.#$/\[\]\x00-\x1f\x7f]/g, '').slice(0, 60) || Date.now().toString();
+      const img = $('itemImg').value.trim();
+      // قبول data URL للصور المضغوطة فقط، أو مسار/رابط بسيط — ورفض أي شيء آخر
+      const imgOk = img === '' || /^data:image\/(webp|jpeg|png);base64,/.test(img) || /^(https:\/\/|img\/|\/)[\w\-./%?=&:]+$/.test(img);
+      if (!imgOk) { showToast('قيمة الصورة غير صالحة', 'error'); return; }
+      if (img.length > 350000) { showToast('الصورة كبيرة على التخزين — أعد رفعها لتُضغط', 'error'); return; }
       const payload = {
         id,
-        name: $('itemName').value.trim(),
-        price: Number($('itemPrice').value || 0),
+        name: $('itemName').value.trim().slice(0, 120),
+        price: Math.max(0, Math.min(9999999, Number($('itemPrice').value) || 0)),
         cat: $('itemCat').value,
-        badge: $('itemBadge').value.trim(),
-        desc: $('itemDesc').value.trim(),
-        img: $('itemImg').value.trim(),
-        order: Number($('itemOrder').value || 0)
+        badge: ['popular', 'new'].includes($('itemBadge').value.trim()) ? $('itemBadge').value.trim() : '',
+        desc: $('itemDesc').value.trim().slice(0, 600),
+        img,
+        order: Math.max(0, Math.min(99999, Number($('itemOrder').value) || 0))
       };
       if (!payload.name || !payload.cat) {
         showToast('يرجى إدخال اسم الطبق واختيار التصنيف', 'error');
