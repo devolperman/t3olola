@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>لوحة إدارة تعلولة — النظام المتكامل</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.firebaseio.com https://*.firebase.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com wss://*.firebaseio.com ws://127.0.0.1:3001; form-action 'self'; base-uri 'self';"> 
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.firebaseio.com https://*.firebase.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.firebaseio.com https://*.firebase.com https://www.gstatic.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com wss://*.firebaseio.com ws://127.0.0.1:3001; form-action 'self'; base-uri 'self';"> 
   <meta name="robots" content="noindex, nofollow">
   <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Readex+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -1114,9 +1114,10 @@
       const id = rawId.replace(/[.#$/\[\]\x00-\x1f\x7f]/g, '').slice(0, 60) || Date.now().toString();
       const img = $('itemImg').value.trim();
       // قبول data URL للصور المضغوطة فقط، أو مسار/رابط يبدأ ببادئة آمنة.
-      // نسمح بأي حرف عدا المسافات والاقتباسات والأقواس الزاوية (لدعم أسماء الصور العربية)
-      // مع منع javascript: وغيرها لأن البادئة مقيّدة بـ https:// أو img/ أو /.
-      const imgOk = img === '' || /^data:image\/(webp|jpeg|png);base64,/.test(img) || /^(https:\/\/|img\/|\/)[^\s"'<>]+$/.test(img);
+      // نسمح بأي حرف (بما فيه المسافات والأحرف العربية لدعم أسماء ملفات مثل "img/كبة السراي.webp")
+      // عدا الاقتباسات والأقواس الزاوية والأسطر الجديدة؛ والبادئة مقيّدة بـ https:// أو img/ أو /
+      // فتُمنع javascript: وأمثالها. وتُمرَّر القيمة عبر esc() عند العرض لأمان سياق HTML.
+      const imgOk = img === '' || /^data:image\/(webp|jpeg|png);base64,/.test(img) || /^(https:\/\/|img\/|\/)[^"'<>\r\n\t]+$/.test(img);
       if (!imgOk) { showToast('قيمة الصورة غير صالحة', 'error'); return; }
       if (img.length > 350000) { showToast('الصورة كبيرة على التخزين — أعد رفعها لتُضغط', 'error'); return; }
       const payload = {
