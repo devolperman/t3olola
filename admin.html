@@ -1113,8 +1113,10 @@
       // معرّف آمن للاستخدام كمفتاح في قاعدة البيانات (بدون رموز Firebase الممنوعة أو حقن)
       const id = rawId.replace(/[.#$/\[\]\x00-\x1f\x7f]/g, '').slice(0, 60) || Date.now().toString();
       const img = $('itemImg').value.trim();
-      // قبول data URL للصور المضغوطة فقط، أو مسار/رابط بسيط — ورفض أي شيء آخر
-      const imgOk = img === '' || /^data:image\/(webp|jpeg|png);base64,/.test(img) || /^(https:\/\/|img\/|\/)[\w\-./%?=&:]+$/.test(img);
+      // قبول data URL للصور المضغوطة فقط، أو مسار/رابط يبدأ ببادئة آمنة.
+      // نسمح بأي حرف عدا المسافات والاقتباسات والأقواس الزاوية (لدعم أسماء الصور العربية)
+      // مع منع javascript: وغيرها لأن البادئة مقيّدة بـ https:// أو img/ أو /.
+      const imgOk = img === '' || /^data:image\/(webp|jpeg|png);base64,/.test(img) || /^(https:\/\/|img\/|\/)[^\s"'<>]+$/.test(img);
       if (!imgOk) { showToast('قيمة الصورة غير صالحة', 'error'); return; }
       if (img.length > 350000) { showToast('الصورة كبيرة على التخزين — أعد رفعها لتُضغط', 'error'); return; }
       const payload = {
